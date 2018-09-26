@@ -7,8 +7,8 @@
     <ProjectGuid>{E682A0C4-95EA-4265-BEF3-24E0C5379C8E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Bochky.Common</RootNamespace>
-    <AssemblyName>Bochky.Common</AssemblyName>
+    <RootNamespace>BochkyLink.Common</RootNamespace>
+    <AssemblyName>BochkyLink.Common</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -40,16 +40,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
     <Compile Include="Entities\Category.cs" />
+    <Compile Include="Entities\ConsumerFolder.cs" />
     <Compile Include="Entities\DictionaryBase.cs" />
     <Compile Include="Entities\Folder.cs" />
     <Compile Include="Entities\Model.cs" />
-    <Compile Include="Entities\ModelList.cs" />
     <Compile Include="Entities\Request.cs" />
     <Compile Include="Entities\Settings.cs" />
     <Compile Include="Entities\SpecificationFile.cs" />
-    <Compile Include="Interfaces\ICategoryList.cs" />
+    <Compile Include="Exception\BusinessException.cs" />
+    <Compile Include="Exception\DatabaseException.cs" />
+    <Compile Include="Interfaces\ISpecService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

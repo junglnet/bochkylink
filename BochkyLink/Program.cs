@@ -7,10 +7,10 @@ using System.Windows.Forms;
 namespace BochkyLink
 {
     static class Program
-    {
+    {       
         /// <summary>
         /// Главная точка входа для приложения.
-        /// </summary>
+        /// </summary>        
         [STAThread]
         static void Main()
         {
