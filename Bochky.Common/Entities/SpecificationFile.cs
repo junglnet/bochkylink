@@ -13,3 +13,4 @@ namespace BochkyLink.Common.Entities
        public string FilePath { get; set; }
     }
 }
+
