@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using BochkyLink.Common.Exception;
 
 namespace BochkyLink.Common.Entities
@@ -12,15 +13,14 @@ namespace BochkyLink.Common.Entities
     /// </summary>
     public class ConsumerFolder : Folder
     {
-        public ConsumerFolder(string basePath, string templateFolderPath, string consumerFolderName)
-        {
+        public ConsumerFolder(string basePath, string templateFolderPath, string consumerFolderName) : base(basePath + consumerFolderName)
+        {           
             if (consumerFolderName == null || consumerFolderName == "") throw new BusinessException("Не задано имя папки");
             else
-            {
-                this.FolderPath = basePath + consumerFolderName;
+            {                
                 CopyDir(templateFolderPath, this.FolderPath);
-            }
-                       
+            }        
         }
+       
     }
 }

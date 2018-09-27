@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BochkyLink.Common.Exception;
 using BochkyLink.Common.Entities;
 using BochkyLink.Common.Interfaces;
 using BochkyLink.Source;
+
 
 
 namespace BochkyLink.BL
@@ -88,13 +90,17 @@ namespace BochkyLink.BL
         public void FillConsumerFolder(string model, string consumerFolderName)
         {      
             this.Model = model;
+           
             if (model == "" || model == null) throw new BusinessException("Значение модели пусто");            
             else
             {
                 try
                 {
-                    Path = db.GetPatchToSpec(model);
+                    SpecificationFile specFile = new SpecificationFile(settings.PathToCRMFolder + db.GetPatchToSpec(model));                    
                     ConsumerFolder consumerFolder = new ConsumerFolder(settings.PathToConsumerFolder, settings.PathToTemplateFolder, consumerFolderName);
+                    Folder specFolder = new Folder(consumerFolder.FolderPath + settings.NameSpecConsumerFolder);
+                   
+                    specFolder.OpenFolder();
                 }
                 catch (Exception ex)
                 {

@@ -27,7 +27,7 @@ namespace BochkyLink
         {
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen;
-
+            this.FormBorderStyle = FormBorderStyle.Fixed3D;
             settings = new Settings();
             dataBase = new DataBase(settings.DBConnectionString);
         } 
@@ -51,12 +51,18 @@ namespace BochkyLink
             try
             {
                 specBusinessLayer.FillConsumerFolder(comboBox2.Text, textBox1.Text);
+                
             }
             catch (BusinessException ex)
             {
                 MessageBox.Show(ex.Message);
             }
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
