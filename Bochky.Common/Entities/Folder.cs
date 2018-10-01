@@ -5,6 +5,7 @@ using System.Text;
 using BochkyLink.Common.Exception;
 using System.Windows.Forms;
 using System.Diagnostics;
+using System.Threading.Tasks;
 
 namespace BochkyLink.Common.Entities
 {
@@ -20,7 +21,8 @@ namespace BochkyLink.Common.Entities
             try
             {
                 DirectoryInfo folder = new DirectoryInfo(folderPath);
-                this.FolderPath = folderPath + "\\";
+                this.FolderPath = folderPath;
+               
             }
             catch (System.Exception ex)
             {
@@ -56,8 +58,7 @@ namespace BochkyLink.Common.Entities
                 FileInfo file = new FileInfo(pathToFile);
                 if (!Directory.Exists(FolderPath)) throw new IOException("Папка назначения " + FolderPath + " не найдена!");
                 if (!file.Exists) throw new IOException("файл " + file.FullName + " не найден!");
-                file.CopyTo(FolderPath + "\\" + file.Name, false);
-
+                file.CopyTo(FolderPath + "\\" + file.Name, false);               
             }
             catch (IOException ex)
             {
@@ -72,8 +73,8 @@ namespace BochkyLink.Common.Entities
         {
             try
             {
-                // полная хрень
-                //Process.Start(FolderPath);
+               
+                Task.Run(() => Process.Start("explorer", FolderPath));
             }
             catch (System.Exception ex)
             {

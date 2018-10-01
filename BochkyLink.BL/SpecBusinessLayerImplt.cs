@@ -99,7 +99,7 @@ namespace BochkyLink.BL
                     SpecificationFile specFile = new SpecificationFile(settings.PathToCRMFolder + db.GetPatchToSpec(model));                    
                     ConsumerFolder consumerFolder = new ConsumerFolder(settings.PathToConsumerFolder, settings.PathToTemplateFolder, consumerFolderName);
                     Folder specFolder = new Folder(consumerFolder.FolderPath + settings.NameSpecConsumerFolder);
-                   
+                    specFolder.PutFileToFolder(specFile.fullPathToFile);
                     specFolder.OpenFolder();
                 }
                 catch (Exception ex)

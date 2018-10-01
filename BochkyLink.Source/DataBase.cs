@@ -27,24 +27,9 @@ namespace BochkyLink.Source
         public DataBase(String connectionString)
         {
             commonDataSet = new DataSet();
-            this.connectionString = connectionString;
-            CONNECTION = new OleDbConnection(connectionString);
-            try
-            {
-                CONNECTION.Open();
-            }
-            catch (DatabaseException ex)
-            {
-                MessageBox.Show(ex.Message);
-                // Как лучше тут организовать?
-
-            }           
+            this.connectionString = connectionString;                 
         }
-        ~DataBase()
-        {
-            //CONNECTION.Close();
-        }
-
+        
         /// <summary>
         /// Возвращает перечень имен категорий
         /// </summary> 
@@ -52,13 +37,30 @@ namespace BochkyLink.Source
         {
             List<string> CategoryNameList = new List<string>();
             
-            dataAdapterCategory = new OleDbDataAdapter("SELECT * FROM " + DEFAULT_CATEGORY_TABLE_NAME + "", CONNECTION);
-            dataAdapterCategory.Fill(commonDataSet, DEFAULT_CATEGORY_TABLE_NAME);          
-            
-            CategoryNameList = commonDataSet.Tables[DEFAULT_CATEGORY_TABLE_NAME].AsEnumerable()
-                           .Select(r => r.Field<string>("cat_name"))
-                           .ToList();           
+                using (CONNECTION = new OleDbConnection(connectionString))
+                {
+                    try
+                    {
+                        CONNECTION.Open();
+
+                        dataAdapterCategory = new OleDbDataAdapter("SELECT * FROM " + DEFAULT_CATEGORY_TABLE_NAME + "", CONNECTION);
+                        dataAdapterCategory.Fill(commonDataSet, DEFAULT_CATEGORY_TABLE_NAME);
+
+                        CategoryNameList = commonDataSet.Tables[DEFAULT_CATEGORY_TABLE_NAME].AsEnumerable()
+                                       .Select(r => r.Field<string>("cat_name"))
+                                       .ToList();
+                    }
+                    catch (Exception)
+                    {
+                  
+
+                    }
+               
+                    
+                }
+           
             return CategoryNameList;
+
         }
 
         /// <summary>
@@ -82,17 +84,31 @@ namespace BochkyLink.Source
             if (commonDataSet.Tables[DEFAULT_MODEL_TABLE_NAME] != null)
             {
                 commonDataSet.Tables[DEFAULT_MODEL_TABLE_NAME].Clear();               
-            }            
+            }
 
-            dataAdapterModel = new OleDbDataAdapter("SELECT * FROM " + DEFAULT_MODEL_TABLE_NAME + " WHERE "
-                + DEFAULT_MODEL_TABLE_NAME + ".cat_id = " + currentCategoryID + "", CONNECTION);
+            using (CONNECTION = new OleDbConnection(connectionString))
+                {
+                    try
+                    {
+                        CONNECTION.Open();
 
-            dataAdapterModel.Fill(commonDataSet, DEFAULT_MODEL_TABLE_NAME);            
+                        dataAdapterModel = new OleDbDataAdapter("SELECT * FROM " + DEFAULT_MODEL_TABLE_NAME + " WHERE "
+                    + DEFAULT_MODEL_TABLE_NAME + ".cat_id = " + currentCategoryID + "", CONNECTION);
 
-            ModelNameList = commonDataSet.Tables[DEFAULT_MODEL_TABLE_NAME].AsEnumerable()
-                           .Select(r => r.Field<string>("model_name"))
-                           .ToList();            
+                        dataAdapterModel.Fill(commonDataSet, DEFAULT_MODEL_TABLE_NAME);
 
+                        ModelNameList = commonDataSet.Tables[DEFAULT_MODEL_TABLE_NAME].AsEnumerable()
+                                       .Select(r => r.Field<string>("model_name"))
+                                       .ToList();                   
+                    }
+                    catch (Exception)
+                    {
+
+                   
+                    }
+
+                
+                }
             return ModelNameList;
 
         }
@@ -116,30 +132,37 @@ namespace BochkyLink.Source
             {
                 commonDataSet.Tables[DEFAULT_SPEC_TABLE_NAME].Clear();
             }
+           
+                using(CONNECTION = new OleDbConnection(connectionString))
+                {
+                    try
+                    {
+                        CONNECTION.Open();
+                        dataAdapterSpec = new OleDbDataAdapter("SELECT * FROM " + DEFAULT_SPEC_TABLE_NAME + " WHERE "
+                  + DEFAULT_SPEC_TABLE_NAME + ".model_id = " + currentModelID + "", CONNECTION);
 
-            dataAdapterSpec = new OleDbDataAdapter("SELECT * FROM " + DEFAULT_SPEC_TABLE_NAME + " WHERE "
-               + DEFAULT_SPEC_TABLE_NAME + ".model_id = " + currentModelID + "", CONNECTION);
+                        dataAdapterSpec.Fill(commonDataSet, DEFAULT_SPEC_TABLE_NAME);
+                        CONNECTION.Close();
+                    }
+                    catch (Exception)
+                    {
 
-            dataAdapterSpec.Fill(commonDataSet, DEFAULT_SPEC_TABLE_NAME);
-            
+                   
+                    }
+                
+
+                }
+                  
+
             if (commonDataSet.Tables[DEFAULT_SPEC_TABLE_NAME].Rows.Count == 0)
-            {
                 throw new DatabaseException("Не найдена запись для спецификации модели " + currentModel);
 
-                // Как сделать так, чтобы тут возвращался NULL ??
-
-                return null;
-            }
             else if (commonDataSet.Tables[DEFAULT_SPEC_TABLE_NAME].Rows.Count > 1)
-            {              
                 throw new DatabaseException("Найдена более чем одна спецификация по ID " + currentModelID);
-                return null;
-            }
             else
-            {
-                return commonDataSet.Tables[DEFAULT_SPEC_TABLE_NAME].Rows[0]["spec_path"].ToString();              
-            }
-           
+                return commonDataSet.Tables[DEFAULT_SPEC_TABLE_NAME].Rows[0]["spec_path"].ToString();
+
+
         }
     }
 }
