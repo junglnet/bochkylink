@@ -41,8 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\CategoriesList.cs" />
     <Compile Include="Entities\Category.cs" />
     <Compile Include="Entities\ConsumerFolder.cs" />
+    <Compile Include="Entities\DataBaseAdapter.cs" />
     <Compile Include="Entities\DictionaryBase.cs" />
     <Compile Include="Entities\Folder.cs" />
     <Compile Include="Entities\Model.cs" />
@@ -51,6 +53,8 @@
     <Compile Include="Entities\SpecificationFile.cs" />
     <Compile Include="Exception\BusinessException.cs" />
     <Compile Include="Exception\DatabaseException.cs" />
+    <Compile Include="Interfaces\IDataBase.cs" />
+    <Compile Include="Interfaces\IDataBaseAdapter.cs" />
     <Compile Include="Interfaces\ISpecService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

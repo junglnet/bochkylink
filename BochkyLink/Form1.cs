@@ -17,18 +17,18 @@ using BochkyLink.Source;
 namespace BochkyLink
 {
     public partial class Form1 : Form
-    {        
+    {
         Settings settings;
         DataBase dataBase;
         
         SpecBusinessLayerImplt specBusinessLayer;
 
-        public Form1()
+        public Form1(Settings settings)
         {
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen;
             this.FormBorderStyle = FormBorderStyle.Fixed3D;
-            settings = new Settings();
+            this.settings = settings;
             dataBase = new DataBase(settings.DBConnectionString);
         } 
 
@@ -38,6 +38,13 @@ namespace BochkyLink
 
             comboBox1.DataSource = (specBusinessLayer.GetCateriesNameList());
             comboBox1.Text = specBusinessLayer.CategoriesNameList.Count > 0 ? specBusinessLayer.CategoriesNameList[0] : "";
+
+            DataBaseAdapter dba = new DataBaseAdapter(dataBase);
+            CategoriesList cList = dba.GetCategoriesListFromDataSet();
+            foreach(Category c in cList)
+            {
+                MessageBox.Show(c.ID + " " + c.Name);
+            }
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)

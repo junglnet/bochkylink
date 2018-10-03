@@ -21,9 +21,13 @@ namespace BochkyLink.BL
     {
         public string Path { get; private set; }
         public string Model { get; private set; }
+        public Model CurrentModel { get; set; }
         public List<string> CategoriesNameList { get; set; }
+        public List<Category> CategoriesList { get; set; }
         public List<string> ModelsNameList { get; set; }
+        public List<Model> ModelsList { get; set; }
         public string Category { get; set; }
+        public Category CurrentCategory { get; set; }
 
         DataBase db;
         Settings settings;
@@ -40,17 +44,13 @@ namespace BochkyLink.BL
         public List<string> GetCateriesNameList()
         {
             CategoriesNameList = new List<string>();
-            
-            try
-            {              
-                CategoriesNameList = db.GetCategoriesNameList();             
-                return CategoriesNameList;
-            }
-            catch (DatabaseException ex)
-            {
-                MessageBox.Show(ex.Message);
-                return null;
-            }
+            CategoriesList = new List<Category>();
+
+
+
+           // CategoriesNameList = db.GetCategoriesNameList();             
+            return CategoriesNameList;
+           
         }
 
         /// <summary>
@@ -68,7 +68,7 @@ namespace BochkyLink.BL
                 this.Category = currentCategory;
                 try
                 {
-                    ModelsNameList = db.GetModelsNameList(Category);
+                  //  ModelsNameList = db.GetModelsNameList(Category);
                     return ModelsNameList;
                 }
                 catch (DatabaseException ex)
@@ -96,11 +96,11 @@ namespace BochkyLink.BL
             {
                 try
                 {
-                    SpecificationFile specFile = new SpecificationFile(settings.PathToCRMFolder + db.GetPatchToSpec(model));                    
-                    ConsumerFolder consumerFolder = new ConsumerFolder(settings.PathToConsumerFolder, settings.PathToTemplateFolder, consumerFolderName);
-                    Folder specFolder = new Folder(consumerFolder.FolderPath + settings.NameSpecConsumerFolder);
-                    specFolder.PutFileToFolder(specFile.fullPathToFile);
-                    specFolder.OpenFolder();
+                  //  SpecificationFile specFile = new SpecificationFile(settings.PathToCRMFolder + db.GetPatchToSpec(model));                    
+                  //  ConsumerFolder consumerFolder = new ConsumerFolder(settings.PathToConsumerFolder, settings.PathToTemplateFolder, consumerFolderName);
+                  //  Folder specFolder = new Folder(consumerFolder.FolderPath + settings.NameSpecConsumerFolder);
+                  //  specFolder.PutFileToFolder(specFile.fullPathToFile);
+                 //   specFolder.OpenFolder();
                 }
                 catch (Exception ex)
                 {

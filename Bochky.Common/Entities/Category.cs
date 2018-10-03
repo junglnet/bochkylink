@@ -11,9 +11,10 @@ namespace BochkyLink.Common.Entities
     {
         public string Name { get; set; }
 
-        public Category(string name)
+        public Category(int id, string name)
         {
             this.Name = name;
+            this.ID = id;
         }
     }
 }
