@@ -20,24 +20,23 @@ namespace BochkyLink.Common.Entities
         private const string CATEGORY_NAME_COLUMN = "cat_name";
 
 
-        public IDataBase db { get; set; }
+        public IDataBase DataBase { get; private set; }
 
         public DataBaseAdapter(IDataBase db)
         {
-            this.db = db;
-            
+            this.DataBase = db;            
         }
 
-        public CategoriesList GetCategoriesListFromDataSet()
+        public CategoriesList GetCategoriesList()
         {            
-            if (db == null) throw new DatabaseException("База данных пуста");
+            if (DataBase == null) throw new DatabaseException("База данных пуста");
 
             CategoriesList categoriesList = new CategoriesList();
-            DataTable dataTable = db.GetTable(CATEGORY_TABLE_NAME);
+            DataTable dataTable = DataBase.GetTable(CATEGORY_TABLE_NAME);
 
             foreach (DataRow dtRow in dataTable.Rows)
             {                
-                categoriesList.addCategory(new Category((int)dtRow[CATEGORY_ID_COLUMN], (string)dtRow[CATEGORY_NAME_COLUMN]));
+                categoriesList.Add(new Category((int)dtRow[CATEGORY_ID_COLUMN], (string)dtRow[CATEGORY_NAME_COLUMN]));
             }
             return categoriesList;
         }

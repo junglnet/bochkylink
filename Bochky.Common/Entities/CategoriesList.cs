@@ -10,7 +10,7 @@ namespace BochkyLink.Common.Entities
 {
     public class CategoriesList 
     {
-        public List<Category> Categories { get; set; }
+        private List<Category> Categories { get; set; }
 
         public CategoriesList()
         {
@@ -39,14 +39,16 @@ namespace BochkyLink.Common.Entities
             return Categories.GetEnumerator();
         }
 
-        public void addCategory(Category newCategory)
+        public void Add(Category newCategory)
         {
             Categories.Add(newCategory);
         }
 
-        private void GetListFromDB(IDataBase db)
+        public List<string> ToNameList()
         {
-
+            List<string> list = new List<string>();
+            
+            return Categories.Select(c => c.Name).ToList();
         }
     }
 }

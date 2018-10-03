@@ -23,19 +23,23 @@ namespace BochkyLink.BL
         public string Model { get; private set; }
         public Model CurrentModel { get; set; }
         public List<string> CategoriesNameList { get; set; }
-        public List<Category> CategoriesList { get; set; }
+        //public List<Category> CategoriesList { get; set; }
         public List<string> ModelsNameList { get; set; }
         public List<Model> ModelsList { get; set; }
         public string Category { get; set; }
+
+        public Settings Settings { get; set; }
+        public CategoriesList CategoriesList { get; set; }
+
         public Category CurrentCategory { get; set; }
 
-        DataBase db;
-        Settings settings;
+        public IDataBaseAdapter DBa { get; set; }
+       
 
-        public SpecBusinessLayerImplt(DataBase db, Settings settings)
+        public SpecBusinessLayerImplt(Settings settings)
         {
-            this.db = db;
-            this.settings = settings;
+            this.Settings = settings;           
+            DBa = new DataBaseAdapter(new DataBase(settings.DBConnectionString));
         }
 
         /// <summary>
@@ -43,73 +47,93 @@ namespace BochkyLink.BL
         /// </summary>
         public List<string> GetCateriesNameList()
         {
-            CategoriesNameList = new List<string>();
-            CategoriesList = new List<Category>();
-
-
-
-           // CategoriesNameList = db.GetCategoriesNameList();             
+            CategoriesList cList = DBa.GetCategoriesList();
+            if (DBa == null) throw new BusinessException("Список не был получен из базы данных");
+            CategoriesNameList = cList.ToNameList();
             return CategoriesNameList;
-           
         }
 
-        /// <summary>
-        /// Бизнес-логика получания списка моделей по названию категории
-        /// </summary>
-        public List<string> GetModelsNameListByCategory(String currentCategory)
-        {
-            if( currentCategory==null|| currentCategory =="")
-            {
-                return null;
-                throw new BusinessException("Значение категории пусто, отобрать модели не возможно");                
-            }
-            else
-            {
-                this.Category = currentCategory;
-                try
-                {
-                  //  ModelsNameList = db.GetModelsNameList(Category);
-                    return ModelsNameList;
-                }
-                catch (DatabaseException ex)
-                {
-                    MessageBox.Show(ex.Message);
-                    return null;
-                }             
-            }          
-        }
+        //DataBase db;
+        //Settings settings;
 
-        public void CreateConsumerFolder(string basePath)
-        {
-            
-        }
-        
-        /// <summary>
-        /// Бизнес-логика получания пути к файлу спецификации по названию модели
-        /// </summary>
-        public void FillConsumerFolder(string model, string consumerFolderName)
-        {      
-            this.Model = model;
-           
-            if (model == "" || model == null) throw new BusinessException("Значение модели пусто");            
-            else
-            {
-                try
-                {
-                  //  SpecificationFile specFile = new SpecificationFile(settings.PathToCRMFolder + db.GetPatchToSpec(model));                    
-                  //  ConsumerFolder consumerFolder = new ConsumerFolder(settings.PathToConsumerFolder, settings.PathToTemplateFolder, consumerFolderName);
-                  //  Folder specFolder = new Folder(consumerFolder.FolderPath + settings.NameSpecConsumerFolder);
-                  //  specFolder.PutFileToFolder(specFile.fullPathToFile);
-                 //   specFolder.OpenFolder();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);                   
-                }
-                
-            }
-        }
+        //public SpecBusinessLayerImplt(DataBase db, Settings settings)
+        //{
+        //    this.db = db;
+        //    this.settings = settings;
+        //}
 
-       
+        ///// <summary>
+        ///// Бизнес-логика получания списка категорий
+        ///// </summary>
+        //public List<string> GetCateriesNameList()
+        //{
+        //    CategoriesNameList = new List<string>();
+        //    CategoriesList = new List<Category>();
+
+
+
+        //   // CategoriesNameList = db.GetCategoriesNameList();             
+        //    return CategoriesNameList;
+
+        //}
+
+        ///// <summary>
+        ///// Бизнес-логика получания списка моделей по названию категории
+        ///// </summary>
+        //public List<string> GetModelsNameListByCategory(String currentCategory)
+        //{
+        //    if( currentCategory==null|| currentCategory =="")
+        //    {
+        //        return null;
+        //        throw new BusinessException("Значение категории пусто, отобрать модели не возможно");                
+        //    }
+        //    else
+        //    {
+        //        this.Category = currentCategory;
+        //        try
+        //        {
+        //          //  ModelsNameList = db.GetModelsNameList(Category);
+        //            return ModelsNameList;
+        //        }
+        //        catch (DatabaseException ex)
+        //        {
+        //            MessageBox.Show(ex.Message);
+        //            return null;
+        //        }             
+        //    }          
+        //}
+
+        //public void CreateConsumerFolder(string basePath)
+        //{
+
+        //}
+
+        ///// <summary>
+        ///// Бизнес-логика получания пути к файлу спецификации по названию модели
+        ///// </summary>
+        //public void FillConsumerFolder(string model, string consumerFolderName)
+        //{      
+        //    this.Model = model;
+
+        //    if (model == "" || model == null) throw new BusinessException("Значение модели пусто");            
+        //    else
+        //    {
+        //        try
+        //        {
+        //          //  SpecificationFile specFile = new SpecificationFile(settings.PathToCRMFolder + db.GetPatchToSpec(model));                    
+        //          //  ConsumerFolder consumerFolder = new ConsumerFolder(settings.PathToConsumerFolder, settings.PathToTemplateFolder, consumerFolderName);
+        //          //  Folder specFolder = new Folder(consumerFolder.FolderPath + settings.NameSpecConsumerFolder);
+        //          //  specFolder.PutFileToFolder(specFile.fullPathToFile);
+        //         //   specFolder.OpenFolder();
+        //        }
+        //        catch (Exception ex)
+        //        {
+        //            MessageBox.Show(ex.Message);                   
+        //        }
+
+        //    }
+        //}
+
+
     }
 }

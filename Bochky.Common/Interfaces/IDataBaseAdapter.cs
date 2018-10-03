@@ -10,14 +10,14 @@ namespace BochkyLink.Common.Interfaces
     /// <summary>
     /// Взамодействие с DataBase через используемые сущности 
     /// </summary>
-    interface IDataBaseAdapter
+    public interface IDataBaseAdapter
     {
-        IDataBase db { get; set; }
+        IDataBase DataBase { get;  }
         
         /// <summary>
         /// Получение объкта "Список категорий"
         /// </summary>
-        CategoriesList GetCategoriesListFromDataSet();
+        CategoriesList GetCategoriesList();
 
         /// <summary>
         /// Получение объкта "Список моделей категории"

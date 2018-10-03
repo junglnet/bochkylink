@@ -77,7 +77,7 @@ namespace BochkyLink.Source
         //public List<String> GetCategoriesNameList ()
         //{
         //    List<string> CategoryNameList = new List<string>();
-            
+
         //        using (CONNECTION = new OleDbConnection(connectionString))
         //        {
         //            try
@@ -87,19 +87,19 @@ namespace BochkyLink.Source
         //                dataAdapterCategory = new OleDbDataAdapter("SELECT * FROM " + DEFAULT_CATEGORY_TABLE_NAME + "", CONNECTION);
         //                dataAdapterCategory.Fill(commonDataSet, DEFAULT_CATEGORY_TABLE_NAME);
 
-        //                CategoryNameList = commonDataSet.Tables[DEFAULT_CATEGORY_TABLE_NAME].AsEnumerable()
+        //CategoryNameList = commonDataSet.Tables[DEFAULT_CATEGORY_TABLE_NAME].AsEnumerable()
         //                               .Select(r => r.Field<string>("cat_name"))
         //                               .ToList();
-        //            }
+        ////            }
         //            catch (Exception)
         //            {
-                  
+
 
         //            }
-               
-                    
+
+
         //        }
-           
+
         //    return CategoryNameList;
 
         //}
@@ -113,15 +113,15 @@ namespace BochkyLink.Source
         //    int currentCategoryID = 0;
         //    foreach (DataRow dr in commonDataSet.Tables[DEFAULT_CATEGORY_TABLE_NAME].Rows)
         //    {
-               
+
         //        if (dr["cat_name"].ToString() == currentCategory )
         //        {
         //            currentCategoryID = (int)dr["cat_id"];
         //        }
         //    }
-            
+
         //    List<string> ModelNameList = new List<string>();
-                        
+
         //    if (commonDataSet.Tables[DEFAULT_MODEL_TABLE_NAME] != null)
         //    {
         //        commonDataSet.Tables[DEFAULT_MODEL_TABLE_NAME].Clear();               
@@ -145,10 +145,10 @@ namespace BochkyLink.Source
         //            catch (Exception)
         //            {
 
-                   
+
         //            }
 
-                
+
         //        }
         //    return ModelNameList;
 
@@ -173,7 +173,7 @@ namespace BochkyLink.Source
         //    {
         //        commonDataSet.Tables[DEFAULT_SPEC_TABLE_NAME].Clear();
         //    }
-           
+
         //        using(CONNECTION = new OleDbConnection(connectionString))
         //        {
         //            try
@@ -188,12 +188,12 @@ namespace BochkyLink.Source
         //            catch (Exception)
         //            {
 
-                   
+
         //            }
-                
+
 
         //        }
-                  
+
 
         //    if (commonDataSet.Tables[DEFAULT_SPEC_TABLE_NAME].Rows.Count == 0)
         //        throw new DatabaseException("Не найдена запись для спецификации модели " + currentModel);

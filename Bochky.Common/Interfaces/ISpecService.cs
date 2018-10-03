@@ -13,19 +13,23 @@ namespace BochkyLink.Common.Interfaces
         /// Перечень доступных категорий
         /// </summary> 
         List<string> CategoriesNameList { get; set; }
-        List<Category> CategoriesList { get; set; }
+        CategoriesList CategoriesList { get; set; }
+
+        /// <summary>
+        /// Текущая категория
+        /// </summary> 
+        Category CurrentCategory { get; set; }
         
+        IDataBaseAdapter DBa { get; set; }
+        Settings Settings { get; set; }
+
         /// <summary>
         /// Модели
         /// </summary>                       
         List<string> ModelsNameList { get; set; }
         List<Model> ModelsList { get; set; }
         
-        /// <summary>
-        /// Категория моделей
-        /// </summary> 
-        string Category { get; set; }
-        Category CurrentCategory { get; set; }
+        
         
         /// <summary>
         /// Относительный путь до спецификации
