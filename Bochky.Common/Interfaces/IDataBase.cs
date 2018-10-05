@@ -11,8 +11,10 @@ namespace BochkyLink.Common.Interfaces
     {
         DataSet CommonDataSet { get; }
         String ConnectionString { get; }
+        bool IsAvaible { get; }
 
         DataTable GetTable(string tableName);
-        DataTable GetTable(string tableName, string command);
+        DataTable GetTable<T>(string tableName, string selectionKey, T selectionValue);
+        void Insert<T>(string tableName, T value);
     }
 }

@@ -47,8 +47,10 @@ namespace BochkyLink.Common.Entities
         public List<string> ToNameList()
         {
             List<string> list = new List<string>();
-            
-            return Categories.Select(c => c.Name).ToList();
+
+            if (Categories.Count > 0)
+                return Categories.Select(c => c.Name).ToList();
+            else return null;
         }
     }
 }

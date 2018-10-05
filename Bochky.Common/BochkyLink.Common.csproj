@@ -32,6 +32,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -48,13 +49,17 @@
     <Compile Include="Entities\DictionaryBase.cs" />
     <Compile Include="Entities\Folder.cs" />
     <Compile Include="Entities\Model.cs" />
-    <Compile Include="Entities\Request.cs" />
+    <Compile Include="Entities\ModelList.cs" />
     <Compile Include="Entities\Settings.cs" />
     <Compile Include="Entities\SpecificationFile.cs" />
     <Compile Include="Exception\BusinessException.cs" />
     <Compile Include="Exception\DatabaseException.cs" />
+    <Compile Include="Interfaces\IAddNewSpecUI.cs" />
+    <Compile Include="Interfaces\IAddNewSpecService.cs" />
+    <Compile Include="Interfaces\ICreateClientSpecUI.cs" />
     <Compile Include="Interfaces\IDataBase.cs" />
     <Compile Include="Interfaces\IDataBaseAdapter.cs" />
+    <Compile Include="Interfaces\ISettings.cs" />
     <Compile Include="Interfaces\ISpecService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

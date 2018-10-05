@@ -7,23 +7,39 @@ using BochkyLink.Common.Entities;
 
 namespace BochkyLink.Common.Interfaces
 {
-    /// <summary>
-    /// Взамодействие с DataBase через используемые сущности 
-    /// </summary>
+   /// <summary>
+   /// Интерфейс адаптера между базой данных и бизнесс-логикой получения файла спецификации
+   /// </summary>
     public interface IDataBaseAdapter
     {
         IDataBase DataBase { get;  }
         
         /// <summary>
-        /// Получение объкта "Список категорий"
+        /// Формирование списка категорий из БД
         /// </summary>
-        CategoriesList GetCategoriesList();
+        /// <returns>Список категорий</returns>
+        CategoriesList GetCategoriesList();        
+
+       /// <summary>
+       /// Формирование списка моделей из БД, отобранных по категории
+       /// </summary>
+       /// <param name="currentCategory"></param>
+       /// <returns>Список моделей</returns>
+        ModelList GetModelListByCategory(Category currentCategory);        
 
         /// <summary>
-        /// Получение объкта "Список моделей категории"
+        /// Получает файл спецификации из БД и дополняет полным путем к файлу, отбор по модели
         /// </summary>
-        List<Model> GetModelListByCategory(Category currentCanegory);
+        /// <param name="currentModel"></param>
+        /// <param name="basePatch"></param>
+        /// <returns></returns>
+        SpecificationFile GetSpecificationFile(Model currentModel, string basePatch);
 
-        SpecificationFile GetSpecificationFile(Model currentModel);        
+        /// <summary>
+        /// Создание новой категории
+        /// </summary>
+        /// <param name="categoryName">Имя категории</param>
+        /// <returns></returns>
+        Category CreateNewCategory(string categoryName);
     }
 }

@@ -4,25 +4,28 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BochkyLink.Common.Entities;
+using BochkyLink.Common.Interfaces;
 
 namespace BochkyLink.Common.Interfaces
 {
-    public interface ISpecService
+   public interface IAddNewSpecService
     {
         /// <summary>
         /// Общие настройки программы
         /// </summary>
-        ISettings Settings { set; }
+        ISettings Settings { get; }
+
+        IDataBaseAdapter DBa { get; }
 
         /// <summary>
         /// Список категория
         /// </summary>
-        CategoriesList CategoriesList { get;}
+        CategoriesList CategoriesList { get; }
 
         /// <summary>
         /// Список моделей
         /// </summary>
-        ModelList ModelList { get;}
+        ModelList ModelList { get; }
 
         /// <summary>
         /// Текущая категория
@@ -32,13 +35,15 @@ namespace BochkyLink.Common.Interfaces
         /// <summary>
         /// Текущая модель
         /// </summary>
-        Model CurrentModel { get;}        
+        Model CurrentModel { get; }
 
         /// <summary>
         /// Формирует список имен категорий в CategoriesList
         /// </summary>
         /// <returns>Список имен категорий</returns>
-        List<string> GetCateriesNameList();        
+        List<string> GetCateriesNameList();
+
+        SpecificationFile TemplateSpec { get; }
 
         /// <summary>
         /// Формирует список имен категорий в ModelList по заданной категории
@@ -48,10 +53,25 @@ namespace BochkyLink.Common.Interfaces
         List<string> GetModelNameList(string category);
 
         /// <summary>
-        /// Формирование папки клиента 
+        /// Создание новой категории
         /// </summary>
-        /// <param name="model"></param>
-        /// <param name="consumerFolderName"></param>
-        void FillConsumerFolder(string model, string consumerFolderName);
+        /// <param name="newCategoryName">Имя новой категории</param>
+        /// <returns></returns>
+        void CreateNewCategory(string newCategoryName);
+
+        /// <summary>
+        /// Создать новую модель
+        /// </summary>
+        /// <param name="category"></param>
+        /// <param name="newModelName"></param>
+        void CreateNewModel(Category category, string newModelName);
+
+        /// <summary>
+        /// Создание новой спецификации
+        /// </summary>
+        /// <param name="sFile"></param>
+        /// <param name="path"></param>
+        void CreateNewSpec(SpecificationFile sFile, string path);
+
     }
 }

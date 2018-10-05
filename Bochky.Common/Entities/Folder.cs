@@ -3,7 +3,6 @@ using System.IO;
 using System.Collections.Generic;
 using System.Text;
 using BochkyLink.Common.Exception;
-using System.Windows.Forms;
 using System.Diagnostics;
 using System.Threading.Tasks;
 
@@ -24,9 +23,9 @@ namespace BochkyLink.Common.Entities
                 this.FolderPath = folderPath;
                
             }
-            catch (System.Exception ex)
+            catch (IOException)
             {
-                MessageBox.Show(ex.Message);
+                throw new IOException("Не удалось создать папку " + folderPath);
             }
         }
 
@@ -60,9 +59,9 @@ namespace BochkyLink.Common.Entities
                 if (!file.Exists) throw new IOException("файл " + file.FullName + " не найден!");
                 file.CopyTo(FolderPath + "\\" + file.Name, false);               
             }
-            catch (IOException ex)
+            catch (IOException)
             {
-                MessageBox.Show(ex.Message);
+                throw;
             }
         }
 
@@ -76,9 +75,9 @@ namespace BochkyLink.Common.Entities
                
                 Task.Run(() => Process.Start("explorer", FolderPath));
             }
-            catch (System.Exception ex)
+            catch (System.Exception)
             {
-                MessageBox.Show(ex.Message);
+                throw;
             }
            
         }

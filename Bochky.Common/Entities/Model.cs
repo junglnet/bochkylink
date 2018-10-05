@@ -11,5 +11,12 @@ namespace BochkyLink.Common.Entities
     {
         public string Name { get; set; }
         public Category CategoryName { get; set; }
+
+        public Model (int id, string name, Category category)
+        {
+            this.Name = name;
+            this.ID = id;
+            this.CategoryName = category;
+        }
     }
 }

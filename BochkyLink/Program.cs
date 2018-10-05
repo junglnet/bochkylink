@@ -18,7 +18,8 @@ namespace BochkyLink
             Settings settings = new Settings();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1(settings));
+            //  Application.Run(new CreateClientSpecForm(settings));
+            Application.Run(new AddNewSpecForm(settings));
         }
     }
 }

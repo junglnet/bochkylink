@@ -12,6 +12,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BochkyLink.UI", "BochkyLink
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{44F1082D-87E4-4854-B618-68826909FEF4}"
 	ProjectSection(SolutionItems) = preProject
+		Bochky16.ico = Bochky16.ico
+		Bochky32.ico = Bochky32.ico
+		Bochky64.ico = Bochky64.ico
 		Tasks.txt = Tasks.txt
 	EndProjectSection
 EndProject

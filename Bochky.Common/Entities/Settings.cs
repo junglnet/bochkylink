@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using BochkyLink.Common.Interfaces;
 
 namespace BochkyLink.Common.Entities
 {
     /// <summary>
     /// Класс описывает настройки программы
     /// </summary>
-    public class Settings
+    public class Settings : ISettings
     {        
         private const string DEFAULT_DBCONNECTION_PATH = @"|DataDirectory|\Database.accdb";
         private const string DEFAULT_DBCONNECTION_PROVIDER = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source = ";
@@ -25,6 +26,18 @@ namespace BochkyLink.Common.Entities
         public string NameSpecConsumerFolder { get; private set; }
 
         public Settings()
+        {
+            UseDefaults();
+        }
+        public void LoadSettigs()
+        {
+
+        }
+        public void SaveSettigs()
+        {
+
+        }
+        public void UseDefaults()
         {
             DBConnectionString = DEFAULT_DBCONNECTION_PROVIDER + DEFAULT_DBCONNECTION_PATH;
             PathToSpecFolder = DEFAULT_PATH_TO_SPEC_FOLDER;

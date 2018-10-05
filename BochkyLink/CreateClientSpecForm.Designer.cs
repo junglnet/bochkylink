@@ -1,6 +1,6 @@
 ﻿namespace BochkyLink
 {
-    partial class Form1
+    partial class CreateClientSpecForm
     {
         /// <summary>
         /// Обязательная переменная конструктора.
@@ -28,8 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CreateClientSpecForm));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.настройкиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.создатьНовуюМодельToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -53,9 +55,18 @@
             // 
             // настройкиToolStripMenuItem
             // 
+            this.настройкиToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.создатьНовуюМодельToolStripMenuItem});
             this.настройкиToolStripMenuItem.Name = "настройкиToolStripMenuItem";
             this.настройкиToolStripMenuItem.Size = new System.Drawing.Size(79, 20);
             this.настройкиToolStripMenuItem.Text = "Настройки";
+            // 
+            // создатьНовуюМодельToolStripMenuItem
+            // 
+            this.создатьНовуюМодельToolStripMenuItem.Name = "создатьНовуюМодельToolStripMenuItem";
+            this.создатьНовуюМодельToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
+            this.создатьНовуюМодельToolStripMenuItem.Text = "Создать новую модель";
+            this.создатьНовуюМодельToolStripMenuItem.Click += new System.EventHandler(this.создатьНовуюМодельToolStripMenuItem_Click);
             // 
             // label1
             // 
@@ -127,8 +138,9 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(260, 20);
             this.textBox1.TabIndex = 9;
+            this.textBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
             // 
-            // Form1
+            // CreateClientSpecForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -142,9 +154,10 @@
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
-            this.Name = "Form1";
+            this.Name = "CreateClientSpecForm";
             this.Text = "Создание спецификаций для клиента";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.menuStrip1.ResumeLayout(false);
@@ -165,6 +178,7 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.ToolStripMenuItem создатьНовуюМодельToolStripMenuItem;
     }
 }
 
