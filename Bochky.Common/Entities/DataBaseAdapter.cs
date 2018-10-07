@@ -8,6 +8,7 @@ using BochkyLink.Common.Entities;
 using BochkyLink.Common.Interfaces;
 using BochkyLink.Common.Exception;
 
+
 namespace BochkyLink.Common.Entities
 {
     public class DataBaseAdapter : IDataBaseAdapter
@@ -20,19 +21,37 @@ namespace BochkyLink.Common.Entities
         private const string MODEL_ID_COLUMN = "model_id";
         private const string MODEL_NAME_COLUMN = "model_name";
         private const string SPEC_PATH_COLUMN = "spec_path";
-
-
+                       
         public IDataBase DataBase { get; private set; }
+
+        public ISettings Settings { get; private set; }
+
+        public CategoriesList CategoriesList { get; private set; }
+
+        public ModelList ModelList { get; private set; }
+
+        public Category CurrentCategory { get; private set; }
+
+        public Model CurrentModel { get; private set; }
+
+        public SpecificationFile TemplateSpec { get; private set; }
 
         public DataBaseAdapter(IDataBase db)
         {
-            this.DataBase = db;            
+            this.DataBase = db;
+           
+        }
+        public DataBaseAdapter(ISettings settings, IDataBase db)
+        {
+            this.Settings = settings;
+            this.DataBase = db;
         }
 
         public CategoriesList GetCategoriesList()
         {            
             CategoriesList categoriesList = new CategoriesList();
             DataTable dataTable = DataBase.GetTable(CATEGORY_TABLE_NAME);
+
            
             foreach (DataRow dtRow in dataTable.Rows)
             {                
@@ -68,13 +87,33 @@ namespace BochkyLink.Common.Entities
             
         }
 
-        public Category CreateNewCategory(string categoryName)
+        public void CreateNewCategory(string categoryName)
         {
 
             DataBase.Insert<string>(CATEGORY_TABLE_NAME, categoryName);
+            CategoriesList = GetCategoriesList();
 
-            return new Category(1,"2");
         }
 
+        public List<string> GetCateriesNameList()
+        {
+            CategoriesList = GetCategoriesList();
+            return CategoriesList.ToNameList();
+        }
+
+        public List<string> GetModelNameList(string category)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void CreateNewModel(Category category, string newModelName)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void CreateNewSpec(SpecificationFile sFile, string path)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

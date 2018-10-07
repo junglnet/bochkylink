@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BochkyLink.Common.Entities;
+using BochkyLink.Source;
 
 namespace BochkyLink
 {
@@ -16,10 +17,11 @@ namespace BochkyLink
         static void Main()
         {
             Settings settings = new Settings();
+            DataBase dataBase = new DataBase(settings.DBConnectionString);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //  Application.Run(new CreateClientSpecForm(settings));
-            Application.Run(new AddNewSpecForm(settings));
+            Application.Run(new AddNewSpecForm(settings,dataBase));
         }
     }
 }

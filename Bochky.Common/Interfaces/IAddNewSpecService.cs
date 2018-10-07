@@ -14,8 +14,7 @@ namespace BochkyLink.Common.Interfaces
         /// Общие настройки программы
         /// </summary>
         ISettings Settings { get; }
-
-        IDataBaseAdapter DBa { get; }
+              
 
         /// <summary>
         /// Список категория

@@ -83,7 +83,7 @@ namespace BochkyLink
 
         private void создатьНовуюМодельToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            AddNewSpecForm newSpecForm = new AddNewSpecForm(Settings);
+          //  AddNewSpecForm newSpecForm = new AddNewSpecForm(Settings);
         }
 
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)

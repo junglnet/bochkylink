@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="Entities\CategoriesList.cs" />
     <Compile Include="Entities\Category.cs" />
+    <Compile Include="Entities\CommonEventArgs.cs" />
     <Compile Include="Entities\ConsumerFolder.cs" />
     <Compile Include="Entities\DataBaseAdapter.cs" />
     <Compile Include="Entities\DictionaryBase.cs" />

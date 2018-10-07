@@ -10,7 +10,7 @@ namespace BochkyLink.Common.Interfaces
    /// <summary>
    /// Интерфейс адаптера между базой данных и бизнесс-логикой получения файла спецификации
    /// </summary>
-    public interface IDataBaseAdapter
+    public interface IDataBaseAdapter : IAddNewSpecService
     {
         IDataBase DataBase { get;  }
         
@@ -40,6 +40,6 @@ namespace BochkyLink.Common.Interfaces
         /// </summary>
         /// <param name="categoryName">Имя категории</param>
         /// <returns></returns>
-        Category CreateNewCategory(string categoryName);
+        void CreateNewCategory(string categoryName);
     }
 }

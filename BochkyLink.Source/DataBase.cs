@@ -7,6 +7,7 @@ using System.Data.OleDb;
 using System.Data;
 using BochkyLink.Common.Exception;
 using BochkyLink.Common.Interfaces;
+using BochkyLink.Common.Entities;
 
 namespace BochkyLink.Source
 {
@@ -15,6 +16,10 @@ namespace BochkyLink.Source
     {
         OleDbConnection CONNECTION;     
         OleDbDataAdapter dataAdapter;
+        OleDbCommandBuilder dbBuilder;
+        
+       // public delegate void DataBaseStateHandler(object sender, CommonEventArgs e);
+      //  public event EventHandler UpdateEvent;
 
         public DataSet CommonDataSet { get; private set; }
         public String ConnectionString { get; set; }
@@ -33,7 +38,8 @@ namespace BochkyLink.Source
         public DataBase(String connectionString)
         {
             CommonDataSet = new DataSet();
-            this.ConnectionString = connectionString;                 
+            this.ConnectionString = connectionString;
+            
         }
 
         /// <summary>
@@ -97,6 +103,13 @@ namespace BochkyLink.Source
                 }
             }
         }
+
+        /// <summary>
+        /// Добавление новой записи в таблицу
+        /// </summary>
+        /// <typeparam name="T">Тип записи</typeparam>
+        /// <param name="tableName"></param>
+        /// <param name="value"></param>
         public void Insert<T>(string tableName, T value)
         {
             using (CONNECTION = new OleDbConnection(ConnectionString))
@@ -104,25 +117,55 @@ namespace BochkyLink.Source
                 try
                 {
                     CONNECTION.Open();
+                    dataAdapter = new OleDbDataAdapter("SELECT * FROM " + tableName + "", CONNECTION);
 
-                    if (!CommonDataSet.Tables.Contains(tableName))                       
-                    
-                    {
-                        dataAdapter = new OleDbDataAdapter("SELECT * FROM " + tableName + "", CONNECTION);                        
-                        dataAdapter.Fill(CommonDataSet, tableName);
-                    }
+                    if (!CommonDataSet.Tables.Contains(tableName))                    
+                        dataAdapter.Fill(CommonDataSet, tableName);                    
 
                     CommonDataSet.Tables[tableName].Rows.Add(CommonDataSet.Tables[tableName].Rows.Count + 1, value);
-                    // Дописать сохранение в базу
-
+                    System.Windows.Forms.MessageBox.Show("1");
+                    Update(tableName, dataAdapter);
+                    System.Windows.Forms.MessageBox.Show("2");
                 }
 
                 catch (Exception ex)
                 {
-
                     throw new DatabaseException("Ошибка подлючения к базе данных:" + "\n" + ex.Message);
                 }
             }
         }
+
+        public void Insert<T1, T2>(string tableName, T1 value1, T2 value2)
+        {
+            using (CONNECTION = new OleDbConnection(ConnectionString))
+            {
+                try
+                {
+                    CONNECTION.Open();
+                    dataAdapter = new OleDbDataAdapter("SELECT * FROM " + tableName + "", CONNECTION);
+
+                    if (!CommonDataSet.Tables.Contains(tableName))
+                        dataAdapter.Fill(CommonDataSet, tableName);
+
+                    CommonDataSet.Tables[tableName].Rows.Add(CommonDataSet.Tables[tableName].Rows.Count + 1, value1, value2);
+
+                    Update(tableName, dataAdapter);
+                }
+
+                catch (Exception ex)
+                {
+                    throw new DatabaseException("Ошибка подлючения к базе данных:" + "\n" + ex.Message);
+                }
+            }
+        }
+
+        void Update(string tableName, OleDbDataAdapter dataAdapter)
+        {
+            dbBuilder = new OleDbCommandBuilder(dataAdapter);
+
+            if (dataAdapter.Update(CommonDataSet, tableName) == 0)
+                throw new DatabaseException("База данных не была обновлена!");          
+        }
+                
     }
 }

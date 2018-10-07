@@ -19,14 +19,14 @@ namespace BochkyLink
 
         public IAddNewSpecService NewSpecService { get; private set; }
 
-        public AddNewSpecForm(ISettings settings)
+        public AddNewSpecForm(ISettings settings, IDataBase db)
         {
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen;
             this.FormBorderStyle = FormBorderStyle.Fixed3D;
 
             this.Settings = settings;
-            NewSpecService = new NewSpecBusinessLayerImplt(this.Settings);
+            NewSpecService = new DataBaseAdapter(this.Settings, db);
             this.Show();
         }
 
@@ -56,6 +56,7 @@ namespace BochkyLink
                 NewSpecService.CreateNewCategory(textBox1.Text);
                 comboBox1.DataSource = NewSpecService.GetCateriesNameList();
                 comboBox1.Text = textBox1.Text;
+                textBox1.Text = "";
 
             }
             catch (Exception ex)

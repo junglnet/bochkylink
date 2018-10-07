@@ -31,7 +31,6 @@ namespace BochkyLink.BL
         public void CreateNewCategory(string newCategoryName)
         {
             DBa.CreateNewCategory(newCategoryName);
-
             CategoriesList = DBa.GetCategoriesList();
         }
 
