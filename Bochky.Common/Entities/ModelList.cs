@@ -50,5 +50,13 @@ namespace BochkyLink.Common.Entities
             else return null;
             
         }
+        public Model FindModelByName(string name)
+        {
+            foreach (Model m in Models)
+            {
+                if (m.Name == name) return m;
+            }
+            return null;
+        }
     }
 }

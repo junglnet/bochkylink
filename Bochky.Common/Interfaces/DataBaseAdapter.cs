@@ -11,7 +11,7 @@ using BochkyLink.Common.Exception;
 
 namespace BochkyLink.Common.Entities
 {
-    public class DataBaseAdapter : IDataBaseAdapter
+    public abstract class DataBaseAdapter
     {
         private const string CATEGORY_TABLE_NAME = "Categories";
         private const string MODEL_TABLE_NAME = "Models";
@@ -22,45 +22,39 @@ namespace BochkyLink.Common.Entities
         private const string MODEL_NAME_COLUMN = "model_name";
         private const string SPEC_PATH_COLUMN = "spec_path";
                        
-        public IDataBase DataBase { get; private set; }
-
-        public ISettings Settings { get; private set; }
-
-        public CategoriesList CategoriesList { get; private set; }
-
-        public ModelList ModelList { get; private set; }
-
-        public Category CurrentCategory { get; private set; }
-
-        public Model CurrentModel { get; private set; }
-
-        public SpecificationFile TemplateSpec { get; private set; }
-
+        public IDataBase DataBase { get; private set; }     
+      
+        /// <summary>
+        /// Конструктор
+        /// </summary>
+        /// <param name="db"></param>
         public DataBaseAdapter(IDataBase db)
         {
-            this.DataBase = db;
-           
-        }
-        public DataBaseAdapter(ISettings settings, IDataBase db)
-        {
-            this.Settings = settings;
-            this.DataBase = db;
-        }
+            this.DataBase = db;           
+        }        
 
-        public CategoriesList GetCategoriesList()
+        /// <summary>
+        /// Получение списка категорий
+        /// </summary>
+        /// <returns>Список категорий</returns>
+        protected CategoriesList GetCategoriesList()
         {            
             CategoriesList categoriesList = new CategoriesList();
             DataTable dataTable = DataBase.GetTable(CATEGORY_TABLE_NAME);
-
            
             foreach (DataRow dtRow in dataTable.Rows)
             {                
                 categoriesList.Add(new Category((int)dtRow[CATEGORY_ID_COLUMN], (string)dtRow[CATEGORY_NAME_COLUMN]));
             }
             return categoriesList;
-        }        
-
-        public ModelList GetModelListByCategory(Category currentCategory)
+        }      
+        
+        /// <summary>
+        /// Получение списка моделей заданной категории
+        /// </summary>
+        /// <param name="currentCategory">Списко категорий</param>
+        /// <returns></returns>
+        protected ModelList GetModelListByCategory(Category currentCategory)
         {
             ModelList modelList = new ModelList();
                         
@@ -72,7 +66,13 @@ namespace BochkyLink.Common.Entities
             return modelList;
         }       
 
-        public SpecificationFile GetSpecificationFile(Model currentModel, string basePatch)
+        /// <summary>
+        /// Получение файла спецификации заданной модели
+        /// </summary>
+        /// <param name="currentModel">Модель</param>
+        /// <param name="basePatch">Базовый путь</param>
+        /// <returns>Файл спецификации</returns>
+        protected SpecificationFile GetSpecificationFile(Model currentModel, string basePatch)
         {
             SpecificationFile specFile;           
             DataTable dataTable = DataBase.GetTable<int>(SPEC_TABLE_NAME, MODEL_ID_COLUMN, currentModel.ID);            
@@ -85,35 +85,35 @@ namespace BochkyLink.Common.Entities
             else if(dataTable.Rows.Count == 0) throw new DatabaseException("В таблице " + SPEC_TABLE_NAME + " не найдена запись о файле спецификации.");
             else throw new DatabaseException("Ошибка уникальности ключа в таблице " + SPEC_TABLE_NAME + ". Найдено более чем одна запись.");          
             
-        }
+        }                
 
-        public void CreateNewCategory(string categoryName)
+        /// <summary>
+        /// Добавление новой категории
+        /// </summary>
+        /// <param name="categoryName"></param>
+        public virtual void CreateNewCategory(string categoryName)
         {
-
             DataBase.Insert<string>(CATEGORY_TABLE_NAME, categoryName);
-            CategoriesList = GetCategoriesList();
+        }        
 
+        /// <summary>
+        /// Добавление новой модели
+        /// </summary>
+        /// <param name="category"></param>
+        /// <param name="newModelName"></param>
+        public virtual void CreateNewModel(Category category, string newModelName)
+        {
+            DataBase.Insert<string, int>(MODEL_TABLE_NAME, newModelName, category.ID);
         }
 
-        public List<string> GetCateriesNameList()
+        /// <summary>
+        /// Добавление новой спецификации
+        /// </summary>
+        /// <param name="sFile"></param>
+        /// <param name="path"></param>
+        public void CreateNewSpec(int model_id, string path)
         {
-            CategoriesList = GetCategoriesList();
-            return CategoriesList.ToNameList();
-        }
-
-        public List<string> GetModelNameList(string category)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void CreateNewModel(Category category, string newModelName)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void CreateNewSpec(SpecificationFile sFile, string path)
-        {
-            throw new NotImplementedException();
+            DataBase.Insert<int, string>(SPEC_TABLE_NAME, model_id, path);
         }
     }
 }

@@ -10,16 +10,18 @@ namespace BochkyLink.Common.Entities
     /// </summary>
     public class SpecificationFile
     {
-       public FileInfo FileInf { get; set; }
-       public string FullPathToFile { get; private set; }
+        public FileInfo FileInf { get; set; }
+        public string FullPathToFile { get; private set; }
+        public string FolderPath { get; private set; }
 
-       public SpecificationFile (string fullPathToFile)       {
+        public SpecificationFile (string fullPathToFile)       {
             
             FileInfo fileInf = new FileInfo(fullPathToFile);
             if (fileInf.Exists == false) throw new IOException("Файл " + fullPathToFile + " не найден");
             else
             {
                 this.FullPathToFile = fullPathToFile;
+                this.FolderPath = fileInf.DirectoryName;
             }
        }        
     }

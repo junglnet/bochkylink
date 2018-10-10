@@ -46,7 +46,7 @@
     <Compile Include="Entities\Category.cs" />
     <Compile Include="Entities\CommonEventArgs.cs" />
     <Compile Include="Entities\ConsumerFolder.cs" />
-    <Compile Include="Entities\DataBaseAdapter.cs" />
+    <Compile Include="Interfaces\DataBaseAdapter.cs" />
     <Compile Include="Entities\DictionaryBase.cs" />
     <Compile Include="Entities\Folder.cs" />
     <Compile Include="Entities\Model.cs" />
@@ -59,7 +59,6 @@
     <Compile Include="Interfaces\IAddNewSpecService.cs" />
     <Compile Include="Interfaces\ICreateClientSpecUI.cs" />
     <Compile Include="Interfaces\IDataBase.cs" />
-    <Compile Include="Interfaces\IDataBaseAdapter.cs" />
     <Compile Include="Interfaces\ISettings.cs" />
     <Compile Include="Interfaces\ISpecService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

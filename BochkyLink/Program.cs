@@ -17,11 +17,11 @@ namespace BochkyLink
         static void Main()
         {
             Settings settings = new Settings();
-            DataBase dataBase = new DataBase(settings.DBConnectionString);
+           
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //  Application.Run(new CreateClientSpecForm(settings));
-            Application.Run(new AddNewSpecForm(settings,dataBase));
+          //  Application.Run(new CreateClientSpecForm(settings));
+            Application.Run(new AddNewSpecForm(settings));
         }
     }
 }

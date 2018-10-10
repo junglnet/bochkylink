@@ -123,14 +123,14 @@ namespace BochkyLink.Source
                         dataAdapter.Fill(CommonDataSet, tableName);                    
 
                     CommonDataSet.Tables[tableName].Rows.Add(CommonDataSet.Tables[tableName].Rows.Count + 1, value);
-                    System.Windows.Forms.MessageBox.Show("1");
+                    
                     Update(tableName, dataAdapter);
-                    System.Windows.Forms.MessageBox.Show("2");
+                    
                 }
 
-                catch (Exception ex)
+                catch (OleDbException ex)
                 {
-                    throw new DatabaseException("Ошибка подлючения к базе данных:" + "\n" + ex.Message);
+                    throw new DatabaseException("Ошибка взаимодействия с БД:" + "\n" + ex.Message);
                 }
             }
         }
@@ -152,9 +152,9 @@ namespace BochkyLink.Source
                     Update(tableName, dataAdapter);
                 }
 
-                catch (Exception ex)
+                catch (OleDbException ex)
                 {
-                    throw new DatabaseException("Ошибка подлючения к базе данных:" + "\n" + ex.Message);
+                    throw new DatabaseException("Ошибка взаимодействия с БД:" + "\n" + ex.Message);
                 }
             }
         }

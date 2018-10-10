@@ -19,17 +19,16 @@ namespace BochkyLink
 {
     public partial class CreateClientSpecForm : Form, ICreateClientSpecUI
     {
-        public ISettings Settings { get; private set; }           
-        public ISpecService SpecBusinessLayer { get; private set; }
+        public ISettings Settings { get; private set; }
+        public ISpecService SpecBusinessLayer { get; private set; }       
 
         public CreateClientSpecForm(Settings settings)
         {
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen;
-            this.FormBorderStyle = FormBorderStyle.Fixed3D;
-
+            this.FormBorderStyle = FormBorderStyle.Fixed3D;           
             this.Settings = settings;
-
+            
             SpecBusinessLayer = new SpecBusinessLayerImplt(settings);
         } 
 

@@ -7,6 +7,9 @@ using BochkyLink.Common.Entities;
 
 namespace BochkyLink.Common.Interfaces
 {
+    /// <summary>
+    /// UI создания клиентской спецификации
+    /// </summary>
     public interface ICreateClientSpecUI
     {
         ISettings Settings { get; }

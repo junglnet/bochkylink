@@ -7,12 +7,15 @@ using BochkyLink.Common.Entities;
 
 namespace BochkyLink.Common.Interfaces
 {
+    /// <summary>
+    /// Интерфес создания клиентской спецификации
+    /// </summary>
     public interface ISpecService
     {
         /// <summary>
         /// Общие настройки программы
         /// </summary>
-        ISettings Settings { set; }
+        ISettings Settings { get; }
 
         /// <summary>
         /// Список категория

@@ -6,6 +6,7 @@ using BochkyLink.Common.Exception;
 using System.Diagnostics;
 using System.Threading.Tasks;
 
+
 namespace BochkyLink.Common.Entities
 {
     /// <summary>
@@ -20,8 +21,7 @@ namespace BochkyLink.Common.Entities
             try
             {
                 DirectoryInfo folder = new DirectoryInfo(folderPath);
-                this.FolderPath = folderPath;
-               
+                this.FolderPath = folderPath;                               
             }
             catch (IOException)
             {
@@ -29,10 +29,17 @@ namespace BochkyLink.Common.Entities
             }
         }
 
+        public void CreateFolder(bool rewrite)
+        {
+            if (!rewrite)
+                if (Directory.Exists(FolderPath)) throw new IOException("Папка " + FolderPath + " уже существует! Задайте новое имя папки");
+            Directory.CreateDirectory(FolderPath);
+        }
+
         /// <summary>
         /// Копирование папки в другую папку
         /// </summary>
-        protected static void CopyDir(string FromDir, string ToDir)
+        public void CopyDir(string FromDir, string ToDir)
         {                                
                 if (!Directory.Exists(FromDir)) throw new IOException("Папка " + FromDir + " не найдена");
                 if (!Directory.Exists(ToDir)) Directory.CreateDirectory(ToDir);
@@ -71,8 +78,7 @@ namespace BochkyLink.Common.Entities
         public void OpenFolder()
         {
             try
-            {
-               
+            {                
                 Task.Run(() => Process.Start("explorer", FolderPath));
             }
             catch (System.Exception)

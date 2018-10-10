@@ -8,33 +8,17 @@ using BochkyLink.Common.Interfaces;
 
 namespace BochkyLink.Common.Interfaces
 {
-   public interface IAddNewSpecService
+    /// <summary>
+    /// Интерфейс добавления новой спецификации
+    /// </summary>
+    public interface IAddNewSpecService
     {
         /// <summary>
         /// Общие настройки программы
         /// </summary>
-        ISettings Settings { get; }
-              
+        ISettings Settings { get; }         
 
-        /// <summary>
-        /// Список категория
-        /// </summary>
-        CategoriesList CategoriesList { get; }
-
-        /// <summary>
-        /// Список моделей
-        /// </summary>
-        ModelList ModelList { get; }
-
-        /// <summary>
-        /// Текущая категория
-        /// </summary>
-        Category CurrentCategory { get; }
-
-        /// <summary>
-        /// Текущая модель
-        /// </summary>
-        Model CurrentModel { get; }
+        SpecificationFile TemplateSpec { get; }
 
         /// <summary>
         /// Формирует список имен категорий в CategoriesList
@@ -42,13 +26,12 @@ namespace BochkyLink.Common.Interfaces
         /// <returns>Список имен категорий</returns>
         List<string> GetCateriesNameList();
 
-        SpecificationFile TemplateSpec { get; }
-
         /// <summary>
         /// Формирует список имен категорий в ModelList по заданной категории
         /// </summary>
         /// <param name="category">Категория</param>
         /// <returns>Список имен категорий</returns>
+
         List<string> GetModelNameList(string category);
 
         /// <summary>
@@ -58,19 +41,8 @@ namespace BochkyLink.Common.Interfaces
         /// <returns></returns>
         void CreateNewCategory(string newCategoryName);
 
-        /// <summary>
-        /// Создать новую модель
-        /// </summary>
-        /// <param name="category"></param>
-        /// <param name="newModelName"></param>
-        void CreateNewModel(Category category, string newModelName);
-
-        /// <summary>
-        /// Создание новой спецификации
-        /// </summary>
-        /// <param name="sFile"></param>
-        /// <param name="path"></param>
-        void CreateNewSpec(SpecificationFile sFile, string path);
+        void CreateNewSpec(string priorityPath, string baseState, string newCategoryName, string newModelName,
+            string templateCategoryName, string templateModelName, string newFolderName);
 
     }
 }

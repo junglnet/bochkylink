@@ -52,5 +52,14 @@ namespace BochkyLink.Common.Entities
                 return Categories.Select(c => c.Name).ToList();
             else return null;
         }
+
+        public Category FindCategoryByName(string name)
+        {            
+            foreach (Category c in Categories)
+            {
+                if (c.Name == name) return c;
+            }
+            return null;
+        }
     }
 }

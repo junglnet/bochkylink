@@ -18,5 +18,6 @@ namespace BochkyLink.Common.Interfaces
         DataTable GetTable(string tableName);
         DataTable GetTable<T>(string tableName, string selectionKey, T selectionValue);
         void Insert<T>(string tableName, T value);
+        void Insert<T1, T2>(string tableName, T1 value1, T2 value2);
     }
 }

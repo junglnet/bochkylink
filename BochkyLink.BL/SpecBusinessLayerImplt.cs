@@ -14,10 +14,9 @@ namespace BochkyLink.BL
     /// <summary>
     /// Реализация слоя бизнес-логики отбора спецификаци
     /// </summary>  
-    public class SpecBusinessLayerImplt : ISpecService
+    public class SpecBusinessLayerImplt : DataBaseAdapter, ISpecService
     {
-        public ISettings Settings { private get; set; }
-        public IDataBaseAdapter DBa { get; set; }
+        public ISettings Settings { get; private set; }       
 
         public CategoriesList CategoriesList { get; private set; }
         public ModelList ModelList { get; private set; }
@@ -31,10 +30,12 @@ namespace BochkyLink.BL
         /// Конструктор
         /// </summary>
         /// <param name="settings">Настройки программы</param>
-        public SpecBusinessLayerImplt(ISettings settings)
+
+        public SpecBusinessLayerImplt(ISettings settings) 
+            : base(new DataBase(settings.DBConnectionString))
+           
         {
-            this.Settings = settings;           
-            DBa = new DataBaseAdapter(new DataBase(settings.DBConnectionString));
+            Settings = settings;           
         }
 
         /// <summary>
@@ -44,7 +45,7 @@ namespace BochkyLink.BL
         /// 
         public List<string> GetCateriesNameList()
         {
-            CategoriesList = DBa.GetCategoriesList();
+            CategoriesList = GetCategoriesList();
             return CategoriesList.ToNameList();
         }
 
@@ -57,7 +58,7 @@ namespace BochkyLink.BL
         {
             if (category == "") throw new BusinessException("Не задана категория");
             SetCurrentCategory(category);            
-            ModelList = DBa.GetModelListByCategory(CurrentCategory);     
+            ModelList = GetModelListByCategory(CurrentCategory);     
             return ModelList.ToNameList();            
         }
 
@@ -69,7 +70,7 @@ namespace BochkyLink.BL
         public void FillConsumerFolder(string model, string consumerFolderName)
         {
             SetCurrentModel(model);
-            SpecificationFile specFile = DBa.GetSpecificationFile(CurrentModel, Settings.PathToCRMFolder);
+            SpecificationFile specFile = GetSpecificationFile(CurrentModel, Settings.PathToCRMFolder);
             ConsumerFolder consumerFolder = new ConsumerFolder(Settings.PathToConsumerFolder, Settings.PathToTemplateFolder, consumerFolderName);
             Folder specFolder = new Folder(consumerFolder.FolderPath + Settings.NameSpecConsumerFolder);
             specFolder.PutFileToFolder(specFile.FullPathToFile);
