@@ -67,24 +67,25 @@ namespace BochkyLink.Common.Entities
         }       
 
         /// <summary>
-        /// Получение файла спецификации заданной модели
+        /// Получение папки со спецификациями заданной модели
         /// </summary>
         /// <param name="currentModel">Модель</param>
         /// <param name="basePatch">Базовый путь</param>
         /// <returns>Файл спецификации</returns>
-        protected SpecificationFile GetSpecificationFile(Model currentModel, string basePatch)
+        protected Folder GetSpecificationFolder(Model currentModel, string basePatch)
         {
-            SpecificationFile specFile;           
-            DataTable dataTable = DataBase.GetTable<int>(SPEC_TABLE_NAME, MODEL_ID_COLUMN, currentModel.ID);            
-            if (dataTable.Rows.Count == 1)
-            {                    
-                specFile = new SpecificationFile(basePatch + (string)(dataTable.Rows[0][SPEC_PATH_COLUMN]));
+            Folder specFolder;
 
-                return specFile;
+            DataTable dataTable = DataBase.GetTable<int>(SPEC_TABLE_NAME, MODEL_ID_COLUMN, currentModel.ID);
+
+            if (dataTable.Rows.Count == 1)
+            {
+                specFolder = new Folder(basePatch + (string)(dataTable.Rows[0][SPEC_PATH_COLUMN]));
+
+                return specFolder;
             }
             else if(dataTable.Rows.Count == 0) throw new DatabaseException("В таблице " + SPEC_TABLE_NAME + " не найдена запись о файле спецификации.");
-            else throw new DatabaseException("Ошибка уникальности ключа в таблице " + SPEC_TABLE_NAME + ". Найдено более чем одна запись.");          
-            
+            else throw new DatabaseException("Ошибка уникальности ключа в таблице " + SPEC_TABLE_NAME + ". Найдено более чем одна запись.");                      
         }                
 
         /// <summary>
@@ -107,10 +108,10 @@ namespace BochkyLink.Common.Entities
         }
 
         /// <summary>
-        /// Добавление новой спецификации
+        /// Добавление новой спецификации в таблицу 
         /// </summary>
-        /// <param name="sFile"></param>
-        /// <param name="path"></param>
+        /// <param name="model_id">ИД модели</param>
+        /// <param name="path">короткий путь</param>
         public void CreateNewSpec(int model_id, string path)
         {
             DataBase.Insert<int, string>(SPEC_TABLE_NAME, model_id, path);

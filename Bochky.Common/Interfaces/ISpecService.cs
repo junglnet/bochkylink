@@ -56,5 +56,11 @@ namespace BochkyLink.Common.Interfaces
         /// <param name="model"></param>
         /// <param name="consumerFolderName"></param>
         void FillConsumerFolder(string model, string consumerFolderName);
+
+        /// <summary>
+        /// Открывает папку с шаблоном спецификации
+        /// </summary>
+        /// <param name="model"></param>
+        void OpenTemplateDirectory(string model);
     }
 }

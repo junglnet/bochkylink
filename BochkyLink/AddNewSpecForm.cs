@@ -71,8 +71,11 @@ namespace BochkyLink
 
         private void button2_Click(object sender, EventArgs e)
         {
-            OpenFileDialog openFileDialog1 = new OpenFileDialog();
-            openFileDialog1.Filter = "Specification Excel files(*.xlsm)|*.xlsm";
+            OpenFileDialog openFileDialog1 = new OpenFileDialog
+            {
+                Filter = "Specification Excel files(*.xlsm)|*.xlsm"
+            };
+           
             if (openFileDialog1.ShowDialog() == DialogResult.Cancel)
                 return;
             label8.Text = openFileDialog1.FileName;            
@@ -109,6 +112,11 @@ namespace BochkyLink
         private void button5_Click(object sender, EventArgs e)
         {
             label8.Text = "Пусто";
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
         }
     }
 }

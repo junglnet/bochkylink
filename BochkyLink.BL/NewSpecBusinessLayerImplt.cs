@@ -21,7 +21,7 @@ namespace BochkyLink.BL
         /// </summary>
         /// <param name="settings"></param>
         public NewSpecBusinessLayerImplt(ISettings settings) 
-            : base(new DataBase(settings.DBConnectionString))
+            : base(new DataBase(settings.DBTemplateConnectionString))
 
         {
             Settings = settings;
@@ -78,45 +78,37 @@ namespace BochkyLink.BL
                 throw new BusinessException("Название новой модели не заданно");
 
             CategoriesList categoriesList = GetCategoriesList();
-            Folder endFolder, catFolder;
-            try
-            {
+            Folder endFolder, catFolder;           
                
                 if (priorityPath != baseState)
                 {
-                    TemplateSpec = new SpecificationFile(priorityPath);
+                  
                     catFolder = new Folder(Settings.PathToCRMFolder + newCategoryName);
                     catFolder.CreateFolder(true);
                     endFolder = new Folder(catFolder.FolderPath + "\\" + newFolderName);
                     endFolder.CreateFolder(false);
 
-                    endFolder.PutFileToFolder(TemplateSpec.FullPathToFile);
+                    endFolder.PutFileToFolder(priorityPath);
                 }
-                    
-                
+                                    
                 else
-                {                   
-                    TemplateSpec = GetSpecificationFile(GetModelListByCategory(categoriesList.FindCategoryByName(templateCategoryName)).FindModelByName(templateModelName), 
-                        Settings.PathToCRMFolder);
+                {            
+                    Folder templateFolder = GetSpecificationFolder(GetModelListByCategory(categoriesList.FindCategoryByName(templateCategoryName)).FindModelByName(templateModelName), Settings.PathToCRMFolder);
 
                     catFolder = new Folder(Settings.PathToCRMFolder + newCategoryName);
                     catFolder.CreateFolder(true);
                     endFolder = new Folder(catFolder.FolderPath + "\\" + newFolderName);
                     endFolder.CreateFolder(false);
 
-                    endFolder.CopyDir(TemplateSpec.FolderPath, endFolder.FolderPath);
+                    endFolder.CopyDir(templateFolder.FolderPath, endFolder.FolderPath);
                 }
 
                 CreateNewModel(categoriesList.FindCategoryByName(newCategoryName), newModelName);
-                CreateNewSpec(GetModelListByCategory(categoriesList.FindCategoryByName(newCategoryName)).FindModelByName(newModelName).ID,TemplateSpec.FolderPath);
-            }
-            catch (Exception ex)
-            {
 
-                throw new BusinessException("Ошибка при создании файла спецификации: " + ex.Message);
-            }
-            
-            
+                CreateNewSpec(GetModelListByCategory(categoriesList.FindCategoryByName(newCategoryName)).FindModelByName(newModelName).ID, newCategoryName + "\\" + newFolderName);
+
+                endFolder.OpenFolder();         
+                        
         }
 
         

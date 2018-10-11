@@ -16,16 +16,18 @@ namespace BochkyLink.Common.Entities
         private const string DEFAULT_PATH_TO_TEMPLATE_FOLDER = @"\\fileserver\Bochky\1. Клиенты\2. Потенциальные клиенты\1. Шаблон папки\";
         private const string DEFAULT_PATH_TO_CRM_FOLDER = @"\\fileserver\Bochky\2. Типовые документы\8. CRM\";
         private const string DEFAULT_NAME_SPEC_CONSUMER_FOLDER = @"\Договор\";
-        
-        private const string DEFAULT_DBCONNECTION_PATH = DEFAULT_PATH_TO_CRM_FOLDER + "\\Database.accdb";
+
+        private const string DEFAULT_DBCONNECTION_PATH = @"|DataDirectory|\Database.accdb";
+        private const string DEFAULT_TEMPLATE_DBCONNECTION_PATH = DEFAULT_PATH_TO_CRM_FOLDER + "\\Database.accdb";
 
         public string DBConnectionString { get; private set; }
+        public string DBTemplateConnectionString { get; private set; }
         public string PathToSpecFolder { get; private set; }
         public string PathToConsumerFolder { get; private set; }
         public string PathToTemplateFolder { get; private set; }
         public string PathToCRMFolder { get; private set; }
         public string NameSpecConsumerFolder { get; private set; }
-
+        
         public Settings()
         {
             UseDefaults();
@@ -41,6 +43,7 @@ namespace BochkyLink.Common.Entities
         public void UseDefaults()
         {
             DBConnectionString = DEFAULT_DBCONNECTION_PROVIDER + DEFAULT_DBCONNECTION_PATH;
+            DBTemplateConnectionString = DEFAULT_DBCONNECTION_PROVIDER + DEFAULT_TEMPLATE_DBCONNECTION_PATH;
             PathToSpecFolder = DEFAULT_PATH_TO_SPEC_FOLDER;
             PathToConsumerFolder = DEFAULT_PATH_TO_CONSUMER_FOLDER;
             PathToTemplateFolder = DEFAULT_PATH_TO_TEMPLATE_FOLDER;

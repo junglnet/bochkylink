@@ -70,11 +70,30 @@ namespace BochkyLink.BL
         public void FillConsumerFolder(string model, string consumerFolderName)
         {
             SetCurrentModel(model);
-            SpecificationFile specFile = GetSpecificationFile(CurrentModel, Settings.PathToCRMFolder);
+            List<SpecificationFile> specificationFiles = new List<SpecificationFile>();
+            
+            Folder baseSpecFolder = GetSpecificationFolder(CurrentModel, Settings.PathToCRMFolder);
+
+            IEnumerable<string> SpecFilesPath = baseSpecFolder.GetFilesByExtension(".xlsm", System.IO.SearchOption.TopDirectoryOnly);
+            
+            foreach (string s in SpecFilesPath)            
+                specificationFiles.Add(new SpecificationFile(s));
+
             ConsumerFolder consumerFolder = new ConsumerFolder(Settings.PathToConsumerFolder, Settings.PathToTemplateFolder, consumerFolderName);
-            Folder specFolder = new Folder(consumerFolder.FolderPath + Settings.NameSpecConsumerFolder);
-            specFolder.PutFileToFolder(specFile.FullPathToFile);
-            specFolder.OpenFolder();
+
+            Folder consomerSpecFolder = new Folder(consumerFolder.FolderPath + Settings.NameSpecConsumerFolder);
+
+            foreach(SpecificationFile sf in specificationFiles)            
+                consomerSpecFolder.PutFileToFolder(sf.FullPathToFile);
+            
+            consomerSpecFolder.OpenFolder();
+        }
+
+        public void OpenTemplateDirectory (string model)
+        {
+            SetCurrentModel(model);            
+            Folder baseSpecFolder = GetSpecificationFolder(CurrentModel, Settings.PathToCRMFolder);
+            baseSpecFolder.OpenFolder();
         }
 
         /// <summary>
@@ -88,6 +107,7 @@ namespace BochkyLink.BL
             {
                 if (c.Name == category) CurrentCategory = c;
             }
+            if (CurrentCategory is null) throw new BusinessException("Категория не найдена");
         }
 
         /// <summary>
@@ -103,6 +123,7 @@ namespace BochkyLink.BL
             {
                 if (m.Name == model) CurrentModel = m;
             }
+            if (CurrentModel is null) throw new BusinessException("Модель не найдена");
         }        
     }
 }

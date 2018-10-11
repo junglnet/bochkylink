@@ -32,6 +32,7 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.настройкиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.создатьНовуюМодельToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.открытьПапкуСШаблономToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -40,13 +41,15 @@
             this.button2 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.настройкиToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.настройкиToolStripMenuItem});
+            this.настройкиToolStripMenuItem,
+            this.настройкиToolStripMenuItem1});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(430, 24);
@@ -56,17 +59,25 @@
             // настройкиToolStripMenuItem
             // 
             this.настройкиToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.создатьНовуюМодельToolStripMenuItem});
+            this.создатьНовуюМодельToolStripMenuItem,
+            this.открытьПапкуСШаблономToolStripMenuItem});
             this.настройкиToolStripMenuItem.Name = "настройкиToolStripMenuItem";
-            this.настройкиToolStripMenuItem.Size = new System.Drawing.Size(79, 20);
-            this.настройкиToolStripMenuItem.Text = "Настройки";
+            this.настройкиToolStripMenuItem.Size = new System.Drawing.Size(68, 20);
+            this.настройкиToolStripMenuItem.Text = "Функции";
             // 
             // создатьНовуюМодельToolStripMenuItem
             // 
             this.создатьНовуюМодельToolStripMenuItem.Name = "создатьНовуюМодельToolStripMenuItem";
-            this.создатьНовуюМодельToolStripMenuItem.Size = new System.Drawing.Size(200, 22);
+            this.создатьНовуюМодельToolStripMenuItem.Size = new System.Drawing.Size(229, 22);
             this.создатьНовуюМодельToolStripMenuItem.Text = "Создать новую модель";
-            this.создатьНовуюМодельToolStripMenuItem.Click += new System.EventHandler(this.создатьНовуюМодельToolStripMenuItem_Click);
+            this.создатьНовуюМодельToolStripMenuItem.Click += new System.EventHandler(this.CreateNewModelToolStripMenuItem_Click);
+            // 
+            // открытьПапкуСШаблономToolStripMenuItem
+            // 
+            this.открытьПапкуСШаблономToolStripMenuItem.Name = "открытьПапкуСШаблономToolStripMenuItem";
+            this.открытьПапкуСШаблономToolStripMenuItem.Size = new System.Drawing.Size(229, 22);
+            this.открытьПапкуСШаблономToolStripMenuItem.Text = "Открыть папку с шаблоном";
+            this.открытьПапкуСШаблономToolStripMenuItem.Click += new System.EventHandler(this.OpenTemplateDirectoryToolStripMenuItem_Click);
             // 
             // label1
             // 
@@ -140,6 +151,13 @@
             this.textBox1.TabIndex = 9;
             this.textBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
             // 
+            // настройкиToolStripMenuItem1
+            // 
+            this.настройкиToolStripMenuItem1.Name = "настройкиToolStripMenuItem1";
+            this.настройкиToolStripMenuItem1.Size = new System.Drawing.Size(79, 20);
+            this.настройкиToolStripMenuItem1.Text = "Настройки";
+            this.настройкиToolStripMenuItem1.Click += new System.EventHandler(this.настройкиToolStripMenuItem1_Click);
+            // 
             // CreateClientSpecForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -179,6 +197,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.ToolStripMenuItem создатьНовуюМодельToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem открытьПапкуСШаблономToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem настройкиToolStripMenuItem1;
     }
 }
 

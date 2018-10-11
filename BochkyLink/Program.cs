@@ -20,8 +20,8 @@ namespace BochkyLink
            
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-          //  Application.Run(new CreateClientSpecForm(settings));
-            Application.Run(new AddNewSpecForm(settings));
+            Application.Run(new CreateClientSpecForm(settings));
+           // Application.Run(new AddNewSpecForm(settings));
         }
     }
 }

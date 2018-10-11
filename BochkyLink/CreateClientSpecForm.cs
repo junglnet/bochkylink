@@ -26,7 +26,7 @@ namespace BochkyLink
         {
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen;
-            this.FormBorderStyle = FormBorderStyle.Fixed3D;           
+            this.FormBorderStyle = FormBorderStyle.Fixed3D;
             this.Settings = settings;
             
             SpecBusinessLayer = new SpecBusinessLayerImplt(settings);
@@ -80,9 +80,18 @@ namespace BochkyLink
             Application.Exit();
         }
 
-        private void создатьНовуюМодельToolStripMenuItem_Click(object sender, EventArgs e)
+        private void CreateNewModelToolStripMenuItem_Click(object sender, EventArgs e)
         {
-          //  AddNewSpecForm newSpecForm = new AddNewSpecForm(Settings);
+            try
+            {
+                AddNewSpecForm newSpecForm = new AddNewSpecForm(Settings);
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+           
         }
 
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
@@ -91,6 +100,25 @@ namespace BochkyLink
             if ((char)e.KeyChar == (Char)Keys.Space) return;            
             if (char.IsDigit(e.KeyChar) || char.IsLetter(e.KeyChar)) return;
             e.Handled = true;
+        }
+
+        private void OpenTemplateDirectoryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                SpecBusinessLayer.OpenTemplateDirectory(comboBox2.Text);
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+           
+        }
+
+        private void настройкиToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -2,6 +2,7 @@
 using System.IO;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
 using BochkyLink.Common.Exception;
 using System.Diagnostics;
 using System.Threading.Tasks;
@@ -86,6 +87,13 @@ namespace BochkyLink.Common.Entities
                 throw;
             }
            
+        }
+
+        public IEnumerable<string> GetFilesByExtension(string extension, SearchOption searchOption)
+        {
+            return
+                Directory.EnumerateFiles(FolderPath, "*" + extension, searchOption)
+                .Where(x => string.Equals(Path.GetExtension(x), extension, StringComparison.InvariantCultureIgnoreCase));
         }
     }
    
