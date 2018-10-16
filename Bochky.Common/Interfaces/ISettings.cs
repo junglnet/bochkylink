@@ -16,8 +16,8 @@ namespace BochkyLink.Common.Interfaces
         string PathToCRMFolder { get; }        
         string NameSpecConsumerFolder { get; }
 
-        void LoadSettigs();
-        void SaveSettigs();
+        void LoadSettigs(ISettingLoader settingLoader);
+        void SaveSettigs(ISettingSaver settingSaver);
         void UseDefaults();
     }
 }

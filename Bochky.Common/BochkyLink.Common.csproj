@@ -42,8 +42,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\BinarySettingLoader.cs" />
+    <Compile Include="Entities\BinarySettingSaver.cs" />
     <Compile Include="Entities\CategoriesList.cs" />
     <Compile Include="Entities\Category.cs" />
+    <Compile Include="Entities\CommonCategoryValidator.cs" />
     <Compile Include="Entities\CommonEventArgs.cs" />
     <Compile Include="Entities\ConsumerFolder.cs" />
     <Compile Include="Interfaces\DataBaseAdapter.cs" />
@@ -57,9 +60,12 @@
     <Compile Include="Exception\DatabaseException.cs" />
     <Compile Include="Interfaces\IAddNewSpecUI.cs" />
     <Compile Include="Interfaces\IAddNewSpecService.cs" />
+    <Compile Include="Interfaces\ICategoryValidator.cs" />
     <Compile Include="Interfaces\ICreateClientSpecUI.cs" />
     <Compile Include="Interfaces\IDataBase.cs" />
+    <Compile Include="Interfaces\ISettingLoader.cs" />
     <Compile Include="Interfaces\ISettings.cs" />
+    <Compile Include="Interfaces\ISettingSaver.cs" />
     <Compile Include="Interfaces\ISpecService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

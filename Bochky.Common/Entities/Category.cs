@@ -13,8 +13,14 @@ namespace BochkyLink.Common.Entities
 
         public Category(int id, string name)
         {
-            this.Name = name;
+            if (name == "" || name == null) throw new System.Exception("Имя категории не может быть пустым");           
             this.ID = id;
+            this.Name = name;
+        }
+        public Category(string name)
+        {
+            if (name == "" || name == null) throw new System.Exception("Имя категории не может быть пустым");
+            this.Name = name;
         }
     }
 }

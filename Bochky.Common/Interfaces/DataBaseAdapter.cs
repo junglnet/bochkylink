@@ -92,9 +92,9 @@ namespace BochkyLink.Common.Entities
         /// Добавление новой категории
         /// </summary>
         /// <param name="categoryName"></param>
-        public virtual void CreateNewCategory(string categoryName)
-        {
-            DataBase.Insert<string>(CATEGORY_TABLE_NAME, categoryName);
+        public void CreateNewCategory(Category newCategory)
+        {            
+            DataBase.Insert<string>(CATEGORY_TABLE_NAME, newCategory.Name);
         }        
 
         /// <summary>
@@ -102,9 +102,9 @@ namespace BochkyLink.Common.Entities
         /// </summary>
         /// <param name="category"></param>
         /// <param name="newModelName"></param>
-        public virtual void CreateNewModel(Category category, string newModelName)
+        public void CreateNewModel(Model newModel)
         {
-            DataBase.Insert<string, int>(MODEL_TABLE_NAME, newModelName, category.ID);
+            DataBase.Insert<string, int>(MODEL_TABLE_NAME, newModel.Name, newModel.Category.ID);
         }
 
         /// <summary>

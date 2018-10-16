@@ -43,47 +43,42 @@ namespace BochkyLink.BL
         /// <returns></returns>
         public List<string> GetModelNameList(string category)
         {
-            ModelList modelList;
-            if (category == "") throw new BusinessException("Не задана категория");
+            ModelList modelList;        
+                        
             modelList = GetModelListByCategory(GetCategoriesList().FindCategoryByName(category));
             return modelList.ToNameList();
         }
 
-        public override void CreateNewCategory(string newCategoryName)
-        {
-            if (newCategoryName == "") throw new BusinessException("Не указанно название новой категории");
-            base.CreateNewCategory(newCategoryName);            
+        public void CreateNewCategory(string newCategoryName)
+        {                      
+            CreateNewCategory(new Category(newCategoryName));            
         }
 
-        public override void CreateNewModel(Category category, string newModelName)
-        {            
-            if (newModelName == "") throw new BusinessException("Не указанно название новой модели");
-            
+        private void CreateNewModel(Category category, string newModelName)
+        {      
             ModelList modelList = GetModelListByCategory(category);
             
             foreach (Model m in modelList)
             {
                 if (m.Name == newModelName) throw new BusinessException("Имя модели совпадает с уже существующим именем в категории " + category.Name);
             }
-            base.CreateNewModel(category, newModelName);
+            CreateNewModel(new Model(newModelName, category));
         }      
  
 
         public void CreateNewSpec(string priorityPath, string baseState, string newCategoryName, string newModelName, 
             string templateCategoryName, string templateModelName, string newFolderName)
         {
-            if(newCategoryName == "" || newCategoryName == null)
-                throw new BusinessException("Название категории не заданно");
-            if (newModelName == "" || newModelName == null)
-                throw new BusinessException("Название новой модели не заданно");
-
+            Category newCategory = new Category(newCategoryName);
+            Model newModel = new Model(newModelName, newCategory);
+            
             CategoriesList categoriesList = GetCategoriesList();
             Folder endFolder, catFolder;           
                
                 if (priorityPath != baseState)
                 {
                   
-                    catFolder = new Folder(Settings.PathToCRMFolder + newCategoryName);
+                    catFolder = new Folder(Settings.PathToCRMFolder + newCategory.Name);
                     catFolder.CreateFolder(true);
                     endFolder = new Folder(catFolder.FolderPath + "\\" + newFolderName);
                     endFolder.CreateFolder(false);
@@ -95,7 +90,7 @@ namespace BochkyLink.BL
                 {            
                     Folder templateFolder = GetSpecificationFolder(GetModelListByCategory(categoriesList.FindCategoryByName(templateCategoryName)).FindModelByName(templateModelName), Settings.PathToCRMFolder);
 
-                    catFolder = new Folder(Settings.PathToCRMFolder + newCategoryName);
+                    catFolder = new Folder(Settings.PathToCRMFolder + newCategory.Name);
                     catFolder.CreateFolder(true);
                     endFolder = new Folder(catFolder.FolderPath + "\\" + newFolderName);
                     endFolder.CreateFolder(false);
@@ -103,9 +98,9 @@ namespace BochkyLink.BL
                     endFolder.CopyDir(templateFolder.FolderPath, endFolder.FolderPath);
                 }
 
-                CreateNewModel(categoriesList.FindCategoryByName(newCategoryName), newModelName);
+                CreateNewModel(categoriesList.FindCategoryByName(newCategory.Name), newModelName);
 
-                CreateNewSpec(GetModelListByCategory(categoriesList.FindCategoryByName(newCategoryName)).FindModelByName(newModelName).ID, newCategoryName + "\\" + newFolderName);
+                CreateNewSpec(GetModelListByCategory(categoriesList.FindCategoryByName(newCategory.Name)).FindModelByName(newModelName).ID, newCategoryName + "\\" + newFolderName);
 
                 endFolder.OpenFolder();         
                         

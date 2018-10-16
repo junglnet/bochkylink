@@ -11,6 +11,7 @@ using BochkyLink.BL;
 using BochkyLink.Common.Entities;
 using BochkyLink.Common.Interfaces;
 
+
 namespace BochkyLink
 {
     public partial class AddNewSpecForm : Form, IAddNewSpecUI

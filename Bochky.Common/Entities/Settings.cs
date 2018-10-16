@@ -32,11 +32,11 @@ namespace BochkyLink.Common.Entities
         {
             UseDefaults();
         }
-        public void LoadSettigs()
+        public void LoadSettigs(ISettingLoader settingLoader)
         {
 
         }
-        public void SaveSettigs()
+        public void SaveSettigs(ISettingSaver settingSaver)
         {
 
         }

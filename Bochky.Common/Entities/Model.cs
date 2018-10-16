@@ -10,13 +10,21 @@ namespace BochkyLink.Common.Entities
     public class Model : DictionaryBase
     {
         public string Name { get; set; }
-        public Category CategoryName { get; set; }
+        public Category Category { get; set; }
 
         public Model (int id, string name, Category category)
         {
+            if (name == "" || name == null) throw new System.Exception("Имя модели не может быть пустым");
             this.Name = name;
             this.ID = id;
-            this.CategoryName = category;
+            this.Category = category;
+        }
+
+        public Model (string name, Category category)
+        {
+            if (name == "" || name == null) throw new System.Exception("Имя модели не может быть пустым");
+            this.Name = name;           
+            this.Category = category;
         }
     }
 }
