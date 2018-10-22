@@ -147,6 +147,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_5778564DFCA6756AEFD7196C8A6ABAED"
+        "OwnerKey" = "8:_24F51E737407424AA703251D1BE7AB22"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_5933C678ECDFF0D08FB7939895FD71DB"
         "OwnerKey" = "8:_24F51E737407424AA703251D1BE7AB22"
         "MsmSig" = "8:_UNDEFINED"
@@ -166,12 +172,6 @@
         "Entry"
         {
         "MsmKey" = "8:_5F80CF75BCD664DA2F0F74B3EC944E74"
-        "OwnerKey" = "8:_24F51E737407424AA703251D1BE7AB22"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_60DFA8206AA7EB35735901A1773E0185"
         "OwnerKey" = "8:_24F51E737407424AA703251D1BE7AB22"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -279,6 +279,18 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_8BE3FCAE13F4D05E6F8672FA5A73C46D"
+        "OwnerKey" = "8:_5778564DFCA6756AEFD7196C8A6ABAED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_8BE3FCAE13F4D05E6F8672FA5A73C46D"
+        "OwnerKey" = "8:_24F51E737407424AA703251D1BE7AB22"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_8C365CB9A6064B02A31BAA23E4D98CE0"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -345,18 +357,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_C290ECFF778C70EABA1C6CA26ACE32C4"
-        "OwnerKey" = "8:_60DFA8206AA7EB35735901A1773E0185"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_C290ECFF778C70EABA1C6CA26ACE32C4"
-        "OwnerKey" = "8:_24F51E737407424AA703251D1BE7AB22"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_C5C006B35AC88AF0EBC2D723C2777740"
         "OwnerKey" = "8:_24F51E737407424AA703251D1BE7AB22"
         "MsmSig" = "8:_UNDEFINED"
@@ -399,6 +399,24 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_EAE4CF59592950D6E47DF200B6C99BF9"
+        "OwnerKey" = "8:_24F51E737407424AA703251D1BE7AB22"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_EAE4CF59592950D6E47DF200B6C99BF9"
+        "OwnerKey" = "8:_8BE3FCAE13F4D05E6F8672FA5A73C46D"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_EAE4CF59592950D6E47DF200B6C99BF9"
+        "OwnerKey" = "8:_5778564DFCA6756AEFD7196C8A6ABAED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_EB967C726EF6AEF920449E2A57798769"
         "OwnerKey" = "8:_24F51E737407424AA703251D1BE7AB22"
         "MsmSig" = "8:_UNDEFINED"
@@ -429,24 +447,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_F983809B62DF9960FFC702691C0F066E"
-        "OwnerKey" = "8:_24F51E737407424AA703251D1BE7AB22"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_F983809B62DF9960FFC702691C0F066E"
-        "OwnerKey" = "8:_C290ECFF778C70EABA1C6CA26ACE32C4"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_F983809B62DF9960FFC702691C0F066E"
-        "OwnerKey" = "8:_60DFA8206AA7EB35735901A1773E0185"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_24F51E737407424AA703251D1BE7AB22"
         "MsmSig" = "8:_UNDEFINED"
@@ -454,19 +454,19 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_60DFA8206AA7EB35735901A1773E0185"
+        "OwnerKey" = "8:_5778564DFCA6756AEFD7196C8A6ABAED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_C290ECFF778C70EABA1C6CA26ACE32C4"
+        "OwnerKey" = "8:_8BE3FCAE13F4D05E6F8672FA5A73C46D"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_F983809B62DF9960FFC702691C0F066E"
+        "OwnerKey" = "8:_EAE4CF59592950D6E47DF200B6C99BF9"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -883,20 +883,6 @@
     {
         "CustomAction"
         {
-            "{4AA51A2D-7D85-4A59-BA75-B0809FC8B380}:_83A66E5CED0D4DDB974FCB9446C45A11"
-            {
-            "Name" = "8:AccessDatabaseEngine.exe"
-            "Condition" = "8:"
-            "Object" = "8:_6DED8EC5182E47F6918D0FF2C7114083"
-            "FileType" = "3:2"
-            "InstallAction" = "3:1"
-            "Arguments" = "8:"
-            "EntryPoint" = "8:"
-            "Sequence" = "3:1"
-            "Identifier" = "8:_DFB95660_8ADC_4B0E_9D91_657585893EC6"
-            "InstallerClass" = "11:FALSE"
-            "CustomActionData" = "8:"
-            }
         }
         "DefaultFeature"
         {
@@ -1549,6 +1535,37 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_5778564DFCA6756AEFD7196C8A6ABAED"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:BochkyLink.BL, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86"
+                "ScatterAssemblies"
+                {
+                    "_5778564DFCA6756AEFD7196C8A6ABAED"
+                    {
+                    "Name" = "8:BochkyLink.BL.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:BochkyLink.BL.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_9D94B7138AE247F9ADBCE57E911D355A"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_5933C678ECDFF0D08FB7939895FD71DB"
             {
             "AssemblyRegister" = "3:1"
@@ -1670,37 +1687,6 @@
             "PackageAs" = "3:1"
             "Register" = "3:1"
             "Exclude" = "11:TRUE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_60DFA8206AA7EB35735901A1773E0185"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:BochkyLink.BL, Version=1.0.0.0, Culture=neutral, PublicKeyToken=2588b2e423647850, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_60DFA8206AA7EB35735901A1773E0185"
-                    {
-                    "Name" = "8:BochkyLink.BL.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:BochkyLink.BL.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_9D94B7138AE247F9ADBCE57E911D355A"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
@@ -2189,6 +2175,37 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_8BE3FCAE13F4D05E6F8672FA5A73C46D"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:BochkyLink.Source, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86"
+                "ScatterAssemblies"
+                {
+                    "_8BE3FCAE13F4D05E6F8672FA5A73C46D"
+                    {
+                    "Name" = "8:BochkyLink.Source.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:BochkyLink.Source.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_9D94B7138AE247F9ADBCE57E911D355A"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_8C365CB9A6064B02A31BAA23E4D98CE0"
             {
             "SourcePath" = "8:..\\Settings.dat"
@@ -2488,37 +2505,6 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_C290ECFF778C70EABA1C6CA26ACE32C4"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:BochkyLink.Source, Version=1.0.0.0, Culture=neutral, PublicKeyToken=94bb87e27feb59c9, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_C290ECFF778C70EABA1C6CA26ACE32C4"
-                    {
-                    "Name" = "8:BochkyLink.Source.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:BochkyLink.Source.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_9D94B7138AE247F9ADBCE57E911D355A"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_C5C006B35AC88AF0EBC2D723C2777740"
             {
             "AssemblyRegister" = "3:1"
@@ -2725,6 +2711,37 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_EAE4CF59592950D6E47DF200B6C99BF9"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:BochkyLink.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86"
+                "ScatterAssemblies"
+                {
+                    "_EAE4CF59592950D6E47DF200B6C99BF9"
+                    {
+                    "Name" = "8:BochkyLink.Common.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:BochkyLink.Common.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_9D94B7138AE247F9ADBCE57E911D355A"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_EB967C726EF6AEF920449E2A57798769"
             {
             "AssemblyRegister" = "3:1"
@@ -2880,37 +2897,6 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_F983809B62DF9960FFC702691C0F066E"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:BochkyLink.Common, Version=1.0.0.0, Culture=neutral, PublicKeyToken=3c036662fb7ec69a, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_F983809B62DF9960FFC702691C0F066E"
-                    {
-                    "Name" = "8:BochkyLink.Common.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:BochkyLink.Common.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_9D94B7138AE247F9ADBCE57E911D355A"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
         }
         "FileType"
         {
@@ -3001,7 +2987,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Bochky. Подготовка спецификаций"
         "ProductCode" = "8:{F6745BA9-5DA2-4396-8E3E-181A02A762F9}"
-        "PackageCode" = "8:{32E4D2B7-69C0-40B3-AF4F-87043CE4C867}"
+        "PackageCode" = "8:{663F4CD6-828C-4B15-98CA-05B16DE38A3F}"
         "UpgradeCode" = "8:{A811D519-C4CB-48F1-AF0C-AAF4EDECC409}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -3555,7 +3541,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_24F51E737407424AA703251D1BE7AB22"
             {
-            "SourcePath" = "8:..\\BochkyLink\\obj\\Debug\\BochkyLink.exe"
+            "SourcePath" = "8:..\\BochkyLink\\obj\\x86\\Debug\\BochkyLink.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_9D94B7138AE247F9ADBCE57E911D355A"

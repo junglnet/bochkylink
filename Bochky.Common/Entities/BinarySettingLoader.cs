@@ -21,7 +21,7 @@ namespace BochkyLink.Common.Entities
             BinaryFormatter formatter = new BinaryFormatter();
 
             try
-            {
+            {               
                 using (FileStream fs = new FileStream(settingsFileName, FileMode.OpenOrCreate))
                 {
                     Settings loadedSettings = (Settings)formatter.Deserialize(fs);
@@ -36,17 +36,17 @@ namespace BochkyLink.Common.Entities
                             }                            
                         }
                         if(coincidence == 0)
-                        {
+                        {    
                             loadedSettings.PropertiesList.Add(p);
                             haveNewProperty = true;
                         }
                     }
 
-                    if (haveNewProperty)                        
+                    if (haveNewProperty)
+                    {                        
                         Directory.CreateDirectory(Path.GetDirectoryName(settingsFileName));
                         loadedSettings.SaveSettigs(new BinarySettingSaver());
-                    
-                    // Проверка на совпадение
+                    }                   
                     return loadedSettings;
                 }
             }
@@ -56,7 +56,7 @@ namespace BochkyLink.Common.Entities
                 
             }
             Directory.CreateDirectory(Path.GetDirectoryName(settingsFileName));
-            settings.SaveSettigs(new BinarySettingSaver());
+            settings.SaveSettigs(new BinarySettingSaver());           
             return settings;
 
         }
