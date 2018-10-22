@@ -13,13 +13,7 @@ namespace BochkyLink.Common.Interfaces
     /// </summary>
     public interface IAddNewSpecService
     {
-        /// <summary>
-        /// Общие настройки программы
-        /// </summary>
-        ISettings Settings { get; }         
-
-        SpecificationFile TemplateSpec { get; }
-
+        
         /// <summary>
         /// Формирует список имен категорий в CategoriesList
         /// </summary>
@@ -41,6 +35,16 @@ namespace BochkyLink.Common.Interfaces
         /// <returns></returns>
         void CreateNewCategory(string newCategoryName);
 
+        /// <summary>
+        /// Создание новой спецификации
+        /// </summary>
+        /// <param name="priorityPath"></param>
+        /// <param name="baseState"></param>
+        /// <param name="newCategoryName"></param>
+        /// <param name="newModelName"></param>
+        /// <param name="templateCategoryName"></param>
+        /// <param name="templateModelName"></param>
+        /// <param name="newFolderName"></param>
         void CreateNewSpec(string priorityPath, string baseState, string newCategoryName, string newModelName,
             string templateCategoryName, string templateModelName, string newFolderName);
 

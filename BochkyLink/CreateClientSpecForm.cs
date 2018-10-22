@@ -17,42 +17,61 @@ using BochkyLink.Source;
 
 namespace BochkyLink
 {
-    public partial class CreateClientSpecForm : Form, ICreateClientSpecUI
+    /// <summary>
+    /// UI выбора и создания клиентской спецификации
+    /// </summary>
+    public partial class CreateClientSpecForm : Form
     {
-        public ISettings Settings { get; private set; }
-        public ISpecService SpecBusinessLayer { get; private set; }       
+        ISettings Settings;
+        ISpecService SpecBusinessLayer;
+        IDBSynchronizer dBSynchronizer;
 
+        /// <summary>
+        /// Конструктор
+        /// </summary>        
         public CreateClientSpecForm(Settings settings)
         {
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen;
             this.FormBorderStyle = FormBorderStyle.Fixed3D;
             this.Settings = settings;
-            
-            SpecBusinessLayer = new SpecBusinessLayerImplt(settings);
-        } 
+
+            try
+            {
+                dBSynchronizer = new FIleDBSynchronizer(Settings.GetPropertyValue("DBTemplateFilePath"), Settings.GetPropertyValue("DBFilePath"));                
+                dBSynchronizer.Sync();                
+                SpecBusinessLayer = new SpecBusinessLayerImplt(settings);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             try
             {
                 comboBox2.Text = "";
-                comboBox1.DataSource = SpecBusinessLayer.GetCateriesNameList();              
+                comboBox1.DataSource = SpecBusinessLayer.GetCateriesNameList();
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-          
+
         }
 
+        /// <summary>
+        /// Событие при выборе категории
+        /// </summary>    
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
             {
                 comboBox2.Text = "";
-                comboBox2.DataSource = SpecBusinessLayer.GetModelNameList(comboBox1.Text);                            
+                comboBox2.DataSource = SpecBusinessLayer.GetModelNameList(comboBox1.Text);
             }
             catch (Exception ex)
             {
@@ -61,12 +80,15 @@ namespace BochkyLink
             }
         }
 
+        /// <summary>
+        /// Событие при нажатии на на кнопку формирования
+        /// </summary>        
         private void button2_Click(object sender, EventArgs e)
         {
             try
             {
                 SpecBusinessLayer.FillConsumerFolder(comboBox2.Text, textBox1.Text);
-                
+
             }
             catch (Exception ex)
             {
@@ -75,33 +97,46 @@ namespace BochkyLink
 
         }
 
+        /// <summary>
+        /// Событие при нажатии на кнопку закрыть
+        /// </summary>        
         private void button1_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
+        /// <summary>
+        /// Событие меню создания новой модели
+        /// </summary>   
         private void CreateNewModelToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
             {
                 AddNewSpecForm newSpecForm = new AddNewSpecForm(Settings);
+                newSpecForm.Show();
             }
             catch (Exception ex)
             {
 
                 MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-           
+
         }
 
+        /// <summary>
+        /// Событие при заполнении строки названия папки
+        /// </summary>        
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
         {
             if ((char)e.KeyChar == (Char)Keys.Back) return;
-            if ((char)e.KeyChar == (Char)Keys.Space) return;            
+            if ((char)e.KeyChar == (Char)Keys.Space) return;
             if (char.IsDigit(e.KeyChar) || char.IsLetter(e.KeyChar)) return;
             e.Handled = true;
         }
 
+        /// <summary>
+        /// Событие меню открыть шаблон
+        /// </summary>        
         private void OpenTemplateDirectoryToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
@@ -113,12 +148,35 @@ namespace BochkyLink
 
                 MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-           
+
         }
 
-        private void настройкиToolStripMenuItem1_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Событие меню изменение параметров
+        /// </summary>        
+        private void ParamToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            SettingsForm settingsForm = new SettingsForm(Settings);
+            settingsForm.Show();
+        }
 
+        /// <summary>
+        /// Событие меню синхронизации БД
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void SyncBDToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                dBSynchronizer.Sync();
+                Application.Restart();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+           
         }
     }
 }

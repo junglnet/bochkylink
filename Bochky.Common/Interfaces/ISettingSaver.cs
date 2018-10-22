@@ -8,6 +8,6 @@ namespace BochkyLink.Common.Interfaces
 {
     public interface ISettingSaver
     {
-        void SaveSettings();
+        void SaveSettings(ISettings settings, string settingsFileName);
     }
 }

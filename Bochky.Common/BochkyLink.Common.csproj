@@ -29,6 +29,12 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>bochky.pfx</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -46,9 +52,10 @@
     <Compile Include="Entities\BinarySettingSaver.cs" />
     <Compile Include="Entities\CategoriesList.cs" />
     <Compile Include="Entities\Category.cs" />
-    <Compile Include="Entities\CommonCategoryValidator.cs" />
     <Compile Include="Entities\CommonEventArgs.cs" />
     <Compile Include="Entities\ConsumerFolder.cs" />
+    <Compile Include="Entities\FIleDBSynchronizer.cs" />
+    <Compile Include="Entities\Property.cs" />
     <Compile Include="Interfaces\DataBaseAdapter.cs" />
     <Compile Include="Entities\DictionaryBase.cs" />
     <Compile Include="Entities\Folder.cs" />
@@ -58,16 +65,17 @@
     <Compile Include="Entities\SpecificationFile.cs" />
     <Compile Include="Exception\BusinessException.cs" />
     <Compile Include="Exception\DatabaseException.cs" />
-    <Compile Include="Interfaces\IAddNewSpecUI.cs" />
     <Compile Include="Interfaces\IAddNewSpecService.cs" />
-    <Compile Include="Interfaces\ICategoryValidator.cs" />
-    <Compile Include="Interfaces\ICreateClientSpecUI.cs" />
     <Compile Include="Interfaces\IDataBase.cs" />
+    <Compile Include="Interfaces\IDBSynchronizer.cs" />
     <Compile Include="Interfaces\ISettingLoader.cs" />
     <Compile Include="Interfaces\ISettings.cs" />
     <Compile Include="Interfaces\ISettingSaver.cs" />
     <Compile Include="Interfaces\ISpecService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bochky.pfx" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

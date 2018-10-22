@@ -11,36 +11,7 @@ namespace BochkyLink.Common.Interfaces
     /// Интерфес создания клиентской спецификации
     /// </summary>
     public interface ISpecService
-    {
-        /// <summary>
-        /// Общие настройки программы
-        /// </summary>
-        ISettings Settings { get; }
-
-        /// <summary>
-        /// Список категория
-        /// </summary>
-        CategoriesList CategoriesList { get;}
-
-        /// <summary>
-        /// Список моделей
-        /// </summary>
-        ModelList ModelList { get;}
-
-        /// <summary>
-        /// Текущая категория
-        /// </summary>
-        Category CurrentCategory { get; }
-
-        /// <summary>
-        /// Текущая модель
-        /// </summary>
-        Model CurrentModel { get;}        
-
-        /// <summary>
-        /// Формирует список имен категорий в CategoriesList
-        /// </summary>
-        /// <returns>Список имен категорий</returns>
+    {      
         List<string> GetCateriesNameList();        
 
         /// <summary>

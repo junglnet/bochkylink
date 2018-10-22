@@ -55,7 +55,7 @@ namespace BochkyLink.Source
                 {
                     CONNECTION.Open();                   
                     DataTable dataTable = new DataTable();
-                    dataAdapter = new OleDbDataAdapter("SELECT * FROM " + tableName + "", CONNECTION);
+                    dataAdapter = new OleDbDataAdapter("SELECT * FROM " + tableName + " ORDER BY 1 ASC" + "", CONNECTION);
                     if (CommonDataSet.Tables.Contains(tableName)) CommonDataSet.Tables[tableName].Clear();
                     dataAdapter.Fill(CommonDataSet, tableName);
                     dataTable = CommonDataSet.Tables[tableName];
@@ -64,8 +64,7 @@ namespace BochkyLink.Source
                 }
                 catch (Exception ex)
                 {
-                    throw new DatabaseException("Ошибка подлючения к базе данных:" + "\n" + ex.Message);
-                  
+                    throw new DatabaseException("Ошибка подлючения к базе данных:" + "\n" + ex.Message);                  
                 }                
             }
         }
@@ -87,7 +86,7 @@ namespace BochkyLink.Source
                     CONNECTION.Open();
                     DataTable dataTable = new DataTable();
                     dataAdapter = new OleDbDataAdapter("SELECT * FROM " + tableName + " WHERE "
-                        + selectionKey + " = " + selectionValue + "", CONNECTION);
+                        + selectionKey + " = " + selectionValue + " ORDER BY 1 ASC" + "", CONNECTION);
 
                     if (CommonDataSet.Tables.Contains(tableName)) CommonDataSet.Tables[tableName].Clear();
 

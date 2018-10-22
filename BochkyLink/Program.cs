@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
+using System.Threading;
 using System.Windows.Forms;
+using System.Runtime.InteropServices;
 using BochkyLink.Common.Entities;
-using BochkyLink.Source;
+using BochkyLink.Common.Interfaces;
 
 namespace BochkyLink
 {
@@ -14,14 +15,31 @@ namespace BochkyLink
         /// Главная точка входа для приложения.
         /// </summary>        
         [STAThread]
-        static void Main()
+        public static void Main()
         {
-            Settings settings = new Settings();
-           
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new CreateClientSpecForm(settings));
-           // Application.Run(new AddNewSpecForm(settings));
+            var assembly = typeof(Program).Assembly;
+            var appGuid = (GuidAttribute)assembly.GetCustomAttributes(typeof(GuidAttribute), true)[0];
+            
+            using (Mutex mutex = new Mutex(false, @"Global\" + appGuid))
+            {
+                if (!mutex.WaitOne(0, false))
+                {                    
+                    MessageBox.Show("Программа уже запущена!", "Внимание", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return;
+                }
+
+                GC.Collect();
+
+                ISettingLoader binarySettingLoader;
+                Settings settings = new Settings();
+                binarySettingLoader = new BinarySettingLoader();
+
+                settings = (Settings)binarySettingLoader.LoadSettings(settings.GetPropertyValue("settingsFileName"), settings);
+
+                Application.EnableVisualStyles();
+                Application.SetCompatibleTextRenderingDefault(false);
+                Application.Run(new CreateClientSpecForm(settings));
+            }
         }
     }
 }

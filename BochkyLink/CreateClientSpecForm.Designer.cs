@@ -33,6 +33,9 @@
             this.настройкиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.создатьНовуюМодельToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.открытьПапкуСШаблономToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.настройкиToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.синхронизацияБДToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.параметрыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -41,7 +44,6 @@
             this.button2 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.настройкиToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -52,7 +54,7 @@
             this.настройкиToolStripMenuItem1});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(430, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(556, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -79,6 +81,29 @@
             this.открытьПапкуСШаблономToolStripMenuItem.Text = "Открыть папку с шаблоном";
             this.открытьПапкуСШаблономToolStripMenuItem.Click += new System.EventHandler(this.OpenTemplateDirectoryToolStripMenuItem_Click);
             // 
+            // настройкиToolStripMenuItem1
+            // 
+            this.настройкиToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.синхронизацияБДToolStripMenuItem,
+            this.параметрыToolStripMenuItem});
+            this.настройкиToolStripMenuItem1.Name = "настройкиToolStripMenuItem1";
+            this.настройкиToolStripMenuItem1.Size = new System.Drawing.Size(79, 20);
+            this.настройкиToolStripMenuItem1.Text = "Настройки";
+            // 
+            // синхронизацияБДToolStripMenuItem
+            // 
+            this.синхронизацияБДToolStripMenuItem.Name = "синхронизацияБДToolStripMenuItem";
+            this.синхронизацияБДToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.синхронизацияБДToolStripMenuItem.Text = "Синхронизация БД";
+            this.синхронизацияБДToolStripMenuItem.Click += new System.EventHandler(this.SyncBDToolStripMenuItem_Click);
+            // 
+            // параметрыToolStripMenuItem
+            // 
+            this.параметрыToolStripMenuItem.Name = "параметрыToolStripMenuItem";
+            this.параметрыToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.параметрыToolStripMenuItem.Text = "Параметры";
+            this.параметрыToolStripMenuItem.Click += new System.EventHandler(this.ParamToolStripMenuItem_Click);
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -93,7 +118,7 @@
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(148, 55);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(260, 21);
+            this.comboBox1.Size = new System.Drawing.Size(382, 21);
             this.comboBox1.TabIndex = 3;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
@@ -111,7 +136,7 @@
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Location = new System.Drawing.Point(148, 98);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(260, 21);
+            this.comboBox2.Size = new System.Drawing.Size(382, 21);
             this.comboBox2.TabIndex = 5;
             // 
             // button1
@@ -126,7 +151,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(272, 190);
+            this.button2.Location = new System.Drawing.Point(394, 190);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(136, 23);
             this.button2.TabIndex = 7;
@@ -147,22 +172,15 @@
             // 
             this.textBox1.Location = new System.Drawing.Point(148, 142);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(260, 20);
+            this.textBox1.Size = new System.Drawing.Size(382, 20);
             this.textBox1.TabIndex = 9;
             this.textBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
-            // 
-            // настройкиToolStripMenuItem1
-            // 
-            this.настройкиToolStripMenuItem1.Name = "настройкиToolStripMenuItem1";
-            this.настройкиToolStripMenuItem1.Size = new System.Drawing.Size(79, 20);
-            this.настройкиToolStripMenuItem1.Text = "Настройки";
-            this.настройкиToolStripMenuItem1.Click += new System.EventHandler(this.настройкиToolStripMenuItem1_Click);
             // 
             // CreateClientSpecForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(430, 235);
+            this.ClientSize = new System.Drawing.Size(556, 235);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.button2);
@@ -199,6 +217,8 @@
         private System.Windows.Forms.ToolStripMenuItem создатьНовуюМодельToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem открытьПапкуСШаблономToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem настройкиToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem синхронизацияБДToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem параметрыToolStripMenuItem;
     }
 }
 

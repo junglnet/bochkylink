@@ -14,12 +14,18 @@ using BochkyLink.Common.Interfaces;
 
 namespace BochkyLink
 {
-    public partial class AddNewSpecForm : Form, IAddNewSpecUI
+    /// <summary>
+    /// UI создания новой спецификации
+    /// </summary>
+    public partial class AddNewSpecForm : Form
     {
-        public ISettings Settings { get; private set; }
+        ISettings Settings;
+        IAddNewSpecService NewSpecService;
 
-        public IAddNewSpecService NewSpecService { get; private set; }
-
+        /// <summary>
+        /// Конструктор
+        /// </summary>
+        /// <param name="settings"></param>
         public AddNewSpecForm(ISettings settings)
         {
             InitializeComponent();
@@ -27,8 +33,7 @@ namespace BochkyLink
             this.FormBorderStyle = FormBorderStyle.Fixed3D;
 
             this.Settings = settings;
-            NewSpecService = new NewSpecBusinessLayerImplt (this.Settings);
-            this.Show();
+            NewSpecService = new NewSpecBusinessLayerImplt (this.Settings);            
         }
 
         private void AddNewSpecForm_Load(object sender, EventArgs e)
@@ -39,7 +44,7 @@ namespace BochkyLink
                 comboBox1.DataSource = NewSpecService.GetCateriesNameList();
                 comboBox2.Text = "";
                 comboBox2.DataSource = NewSpecService.GetCateriesNameList();
-                label10.Text = "Папка будет создана в папке: " + Settings.PathToCRMFolder;
+                label10.Text = "Папка будет создана в папке: " + Settings.GetPropertyValue("PathToCRMFolder");
             }
             catch (Exception ex)
             {
@@ -48,11 +53,17 @@ namespace BochkyLink
             }            
         }
 
+        /// <summary>
+        /// Событие покидание строки модели
+        /// </summary>     
         private void textBox2_Leave(object sender, EventArgs e)
         {
             if (textBox3.Text == "") textBox3.Text = textBox2.Text;
         }
 
+        /// <summary>
+        /// Событие нажатия кнопки содания категории
+        /// </summary>  
         private void button1_Click(object sender, EventArgs e)
         {
             try
@@ -70,6 +81,11 @@ namespace BochkyLink
             }            
         }
 
+        /// <summary>
+        /// Событие нажания кнопки прикрепления файла
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button2_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog1 = new OpenFileDialog
@@ -82,6 +98,9 @@ namespace BochkyLink
             label8.Text = openFileDialog1.FileName;            
         }
 
+        /// <summary>
+        /// Событие нажатия кнопки создать
+        /// </summary>        
         private void button3_Click(object sender, EventArgs e)
         {
             try
@@ -96,6 +115,9 @@ namespace BochkyLink
            
         }
 
+        /// <summary>
+        /// Событие выбора категории
+        /// </summary>
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -110,11 +132,17 @@ namespace BochkyLink
             }
         }
 
+        /// <summary>
+        /// События нажания кнопки, очистить
+        /// </summary>
         private void button5_Click(object sender, EventArgs e)
         {
             label8.Text = "Пусто";
         }
 
+        /// <summary>
+        /// Событие нажания кнопки закрыть
+        /// </summary>
         private void button4_Click(object sender, EventArgs e)
         {
             this.Dispose();

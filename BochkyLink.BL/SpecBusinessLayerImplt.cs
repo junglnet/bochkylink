@@ -12,19 +12,15 @@ using BochkyLink.Source;
 namespace BochkyLink.BL
 {
     /// <summary>
-    /// Реализация слоя бизнес-логики отбора спецификаци
-    /// </summary>  
+    /// Класс адаптер между UI (Формирование клиентской спецификации) и DataBase. 
+    /// </summary>
     public class SpecBusinessLayerImplt : DataBaseAdapter, ISpecService
     {
-        public ISettings Settings { get; private set; }       
-
-        public CategoriesList CategoriesList { get; private set; }
-        public ModelList ModelList { get; private set; }
-
-        public Category CurrentCategory { get; private set; }
-        public Model CurrentModel { get; private set; }
-
-        // На сколько было бы правильно реализовать инкапсцляцию свойств??
+        ISettings Settings;
+        CategoriesList CategoriesList;
+        ModelList ModelList;
+        Category CurrentCategory;
+        Model CurrentModel;        
 
         /// <summary>
         /// Конструктор
@@ -32,7 +28,7 @@ namespace BochkyLink.BL
         /// <param name="settings">Настройки программы</param>
 
         public SpecBusinessLayerImplt(ISettings settings) 
-            : base(new DataBase(settings.DBConnectionString))
+            : base(new DataBase(settings.GetPropertyValue("DBConnectionString")))
            
         {
             Settings = settings;           
@@ -41,8 +37,7 @@ namespace BochkyLink.BL
         /// <summary>
         /// Получения списка категорий
         /// </summary>
-        /// <returns>Список категорий</returns>
-        /// 
+        /// <returns>Список категорий</returns>        
         public List<string> GetCateriesNameList()
         {
             CategoriesList = GetCategoriesList();
@@ -52,8 +47,7 @@ namespace BochkyLink.BL
         /// <summary>
         /// Получения списка моделей
         /// </summary>
-        /// <returns>Список категорий</returns>
-        /// 
+        /// <returns>Список категорий</returns>        
         public List<string> GetModelNameList(string category)
         {
             if (category == "") throw new BusinessException("Не задана категория");
@@ -72,16 +66,17 @@ namespace BochkyLink.BL
             SetCurrentModel(model);
             List<SpecificationFile> specificationFiles = new List<SpecificationFile>();
             
-            Folder baseSpecFolder = GetSpecificationFolder(CurrentModel, Settings.PathToCRMFolder);
+            Folder baseSpecFolder = GetSpecificationFolder(CurrentModel, Settings.GetPropertyValue("PathToCRMFolder"));
 
             IEnumerable<string> SpecFilesPath = baseSpecFolder.GetFilesByExtension(".xlsm", System.IO.SearchOption.TopDirectoryOnly);
             
             foreach (string s in SpecFilesPath)            
                 specificationFiles.Add(new SpecificationFile(s));
 
-            ConsumerFolder consumerFolder = new ConsumerFolder(Settings.PathToConsumerFolder, Settings.PathToTemplateFolder, consumerFolderName);
+            ConsumerFolder consumerFolder = new ConsumerFolder(Settings.GetPropertyValue("PathToConsumerFolder"), 
+                Settings.GetPropertyValue("PathToTemplateFolder"), consumerFolderName);
 
-            Folder consomerSpecFolder = new Folder(consumerFolder.FolderPath + Settings.NameSpecConsumerFolder);
+            Folder consomerSpecFolder = new Folder(consumerFolder.FolderPath + Settings.GetPropertyValue("NameSpecConsumerFolder"));
 
             foreach(SpecificationFile sf in specificationFiles)            
                 consomerSpecFolder.PutFileToFolder(sf.FullPathToFile);
@@ -92,7 +87,7 @@ namespace BochkyLink.BL
         public void OpenTemplateDirectory (string model)
         {
             SetCurrentModel(model);            
-            Folder baseSpecFolder = GetSpecificationFolder(CurrentModel, Settings.PathToCRMFolder);
+            Folder baseSpecFolder = GetSpecificationFolder(CurrentModel, Settings.GetPropertyValue("PathToCRMFolder"));
             baseSpecFolder.OpenFolder();
         }
 

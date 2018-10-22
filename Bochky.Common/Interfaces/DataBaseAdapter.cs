@@ -11,8 +11,14 @@ using BochkyLink.Common.Exception;
 
 namespace BochkyLink.Common.Entities
 {
+    /// <summary>
+    /// Класс адаптер между BL и database
+    /// </summary>
     public abstract class DataBaseAdapter
     {
+        /// <summary>
+        /// Значения полей БД по-умолчанию
+        /// </summary>
         private const string CATEGORY_TABLE_NAME = "Categories";
         private const string MODEL_TABLE_NAME = "Models";
         private const string SPEC_TABLE_NAME = "Specification";
@@ -21,9 +27,8 @@ namespace BochkyLink.Common.Entities
         private const string MODEL_ID_COLUMN = "model_id";
         private const string MODEL_NAME_COLUMN = "model_name";
         private const string SPEC_PATH_COLUMN = "spec_path";
-                       
-        public IDataBase DataBase { get; private set; }     
-      
+        protected IDataBase DataBase;
+
         /// <summary>
         /// Конструктор
         /// </summary>
@@ -59,6 +64,7 @@ namespace BochkyLink.Common.Entities
             ModelList modelList = new ModelList();
                         
             DataTable dataTable = DataBase.GetTable<int>(MODEL_TABLE_NAME, CATEGORY_ID_COLUMN, currentCategory.ID);
+            
             foreach (DataRow dtRow in dataTable.Rows)
             {                
                     modelList.Add(new Model((int)dtRow[MODEL_ID_COLUMN], (string)dtRow[MODEL_NAME_COLUMN], currentCategory));
@@ -92,7 +98,7 @@ namespace BochkyLink.Common.Entities
         /// Добавление новой категории
         /// </summary>
         /// <param name="categoryName"></param>
-        public void CreateNewCategory(Category newCategory)
+        protected void CreateNewCategory(Category newCategory)
         {            
             DataBase.Insert<string>(CATEGORY_TABLE_NAME, newCategory.Name);
         }        
@@ -102,7 +108,7 @@ namespace BochkyLink.Common.Entities
         /// </summary>
         /// <param name="category"></param>
         /// <param name="newModelName"></param>
-        public void CreateNewModel(Model newModel)
+        protected void CreateNewModel(Model newModel)
         {
             DataBase.Insert<string, int>(MODEL_TABLE_NAME, newModel.Name, newModel.Category.ID);
         }
@@ -112,7 +118,7 @@ namespace BochkyLink.Common.Entities
         /// </summary>
         /// <param name="model_id">ИД модели</param>
         /// <param name="path">короткий путь</param>
-        public void CreateNewSpec(int model_id, string path)
+        protected void CreateNewSpec(int model_id, string path)
         {
             DataBase.Insert<int, string>(SPEC_TABLE_NAME, model_id, path);
         }

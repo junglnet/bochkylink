@@ -10,18 +10,19 @@ using BochkyLink.Source;
 
 namespace BochkyLink.BL
 {
+    /// <summary>
+    /// Класс адаптер между UI (Создание новой спецификации) и DataBase. 
+    /// </summary>
     public class NewSpecBusinessLayerImplt : DataBaseAdapter, IAddNewSpecService
     {
-        public ISettings Settings { get; private set; }      
-     
-        public SpecificationFile TemplateSpec { get; private set; }
+        ISettings Settings;        
         
         /// <summary>
         /// Конструктор
         /// </summary>
         /// <param name="settings"></param>
         public NewSpecBusinessLayerImplt(ISettings settings) 
-            : base(new DataBase(settings.DBTemplateConnectionString))
+            : base(new DataBase(settings.GetPropertyValue("DBTemplateConnectionString")))
 
         {
             Settings = settings;
@@ -78,7 +79,7 @@ namespace BochkyLink.BL
                 if (priorityPath != baseState)
                 {
                   
-                    catFolder = new Folder(Settings.PathToCRMFolder + newCategory.Name);
+                    catFolder = new Folder(Settings.GetPropertyValue("PathToCRMFolder") + newCategory.Name);
                     catFolder.CreateFolder(true);
                     endFolder = new Folder(catFolder.FolderPath + "\\" + newFolderName);
                     endFolder.CreateFolder(false);
@@ -88,9 +89,10 @@ namespace BochkyLink.BL
                                     
                 else
                 {            
-                    Folder templateFolder = GetSpecificationFolder(GetModelListByCategory(categoriesList.FindCategoryByName(templateCategoryName)).FindModelByName(templateModelName), Settings.PathToCRMFolder);
+                    Folder templateFolder = GetSpecificationFolder(GetModelListByCategory(categoriesList.FindCategoryByName(templateCategoryName)).FindModelByName(templateModelName), 
+                        Settings.GetPropertyValue("PathToCRMFolder"));
 
-                    catFolder = new Folder(Settings.PathToCRMFolder + newCategory.Name);
+                    catFolder = new Folder(Settings.GetPropertyValue("PathToCRMFolder") + newCategory.Name);
                     catFolder.CreateFolder(true);
                     endFolder = new Folder(catFolder.FolderPath + "\\" + newFolderName);
                     endFolder.CreateFolder(false);
