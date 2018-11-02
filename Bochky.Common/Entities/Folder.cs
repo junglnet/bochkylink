@@ -6,6 +6,7 @@ using System.Linq;
 using BochkyLink.Common.Exception;
 using System.Diagnostics;
 using System.Threading.Tasks;
+using BochkyLink.Common.Interfaces;
 
 
 namespace BochkyLink.Common.Entities
@@ -19,10 +20,14 @@ namespace BochkyLink.Common.Entities
 
         public Folder(string folderPath)
         {
+            IFolderNameValidator fValidator = new FolderNameValidator();
+            if(!fValidator.IsValid(folderPath))
+                throw new IOException("В названии папки есть недопустимый символ");
+
             try
             {
-                DirectoryInfo folder = new DirectoryInfo(folderPath);
-                this.FolderPath = folderPath;                               
+                DirectoryInfo folder = new DirectoryInfo(folderPath);                
+                this.FolderPath = folderPath;                                
             }
             catch (IOException)
             {

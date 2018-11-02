@@ -18,6 +18,8 @@ namespace BochkyLink.Common.Interfaces
         /// </summary>
         List<Property> PropertiesList { get; set; }
 
+        List<Property> NotEditablePropertiesList { get;}
+
         /// <summary>
         /// Сохранение настроек
         /// </summary>

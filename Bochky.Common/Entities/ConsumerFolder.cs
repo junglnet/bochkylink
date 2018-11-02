@@ -22,6 +22,16 @@ namespace BochkyLink.Common.Entities
                 CopyDir(templateFolderPath, this.FolderPath);
             }        
         }
-       
+
+        public ConsumerFolder(string consumerFolderPath, string templateFolderPath) : base(consumerFolderPath)
+        {
+            if (consumerFolderPath == null || consumerFolderPath == "") throw new BusinessException("Не задано имя папки");
+            if (consumerFolderPath[0] == ' ') throw new BusinessException("Не верное название папки " + consumerFolderPath);            
+            else
+            {
+                CopyDir(templateFolderPath, this.FolderPath);
+            }
+        }
+
     }
 }

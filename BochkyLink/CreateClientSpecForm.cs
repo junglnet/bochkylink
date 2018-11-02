@@ -86,8 +86,8 @@ namespace BochkyLink
         private void button2_Click(object sender, EventArgs e)
         {
             try
-            {
-                SpecBusinessLayer.FillConsumerFolder(comboBox2.Text, textBox1.Text);
+            {               
+                SpecBusinessLayer.FillConsumerFolder(comboBox2.Text, textBox1.Text, label4.Text);
 
             }
             catch (Exception ex)
@@ -177,6 +177,43 @@ namespace BochkyLink
                 MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
            
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog();
+                folderBrowserDialog.SelectedPath = Settings.GetPropertyValue("PathToConsumerFolder");
+
+
+                if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
+                {
+                    label4.Text = folderBrowserDialog.SelectedPath;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                label4.Text = "";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+
         }
     }
 }

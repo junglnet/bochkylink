@@ -291,12 +291,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_8C365CB9A6064B02A31BAA23E4D98CE0"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_9132E62CF2891CD41716DA91825F86AE"
         "OwnerKey" = "8:_24F51E737407424AA703251D1BE7AB22"
         "MsmSig" = "8:_UNDEFINED"
@@ -913,11 +907,6 @@
             "AssemblyAsmDisplayName" = "8:System.Threading, Version=4.0.10.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
                 "ScatterAssemblies"
                 {
-                    "_010499FF8D67586D8CF40DF67F83831D"
-                    {
-                    "Name" = "8:System.Threading.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:System.Threading.dll"
             "TargetName" = "8:"
@@ -944,11 +933,6 @@
             "AssemblyAsmDisplayName" = "8:System.Runtime.InteropServices.WindowsRuntime, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
                 "ScatterAssemblies"
                 {
-                    "_05F8F55FCF1795819D5E103DD83FD056"
-                    {
-                    "Name" = "8:System.Runtime.InteropServices.WindowsRuntime.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:System.Runtime.InteropServices.WindowsRuntime.dll"
             "TargetName" = "8:"
@@ -975,11 +959,6 @@
             "AssemblyAsmDisplayName" = "8:System.Reflection.Emit, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
                 "ScatterAssemblies"
                 {
-                    "_1BFDADA9ADFA586761D1B1647A7AABB4"
-                    {
-                    "Name" = "8:System.Reflection.Emit.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:System.Reflection.Emit.dll"
             "TargetName" = "8:"
@@ -1006,11 +985,6 @@
             "AssemblyAsmDisplayName" = "8:System.Globalization, Version=4.0.10.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
                 "ScatterAssemblies"
                 {
-                    "_1E7C9E2DFD9172C9AB45E492D7B446E3"
-                    {
-                    "Name" = "8:System.Globalization.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:System.Globalization.dll"
             "TargetName" = "8:"
@@ -1037,11 +1011,6 @@
             "AssemblyAsmDisplayName" = "8:System.Reflection.Emit.Lightweight, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
                 "ScatterAssemblies"
                 {
-                    "_251F2A249D24CC07CFC3537564323B4E"
-                    {
-                    "Name" = "8:System.Reflection.Emit.Lightweight.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:System.Reflection.Emit.Lightweight.dll"
             "TargetName" = "8:"
@@ -1088,11 +1057,6 @@
             "AssemblyAsmDisplayName" = "8:System.Diagnostics.Tools, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
                 "ScatterAssemblies"
                 {
-                    "_2C3BC32C0C7DF8F7C733D6F0543F79EC"
-                    {
-                    "Name" = "8:System.Diagnostics.Tools.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:System.Diagnostics.Tools.dll"
             "TargetName" = "8:"
@@ -1119,11 +1083,6 @@
             "AssemblyAsmDisplayName" = "8:System.Linq, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
                 "ScatterAssemblies"
                 {
-                    "_2C41F2349580EBF52ED1F5DED9B8E8BA"
-                    {
-                    "Name" = "8:System.Linq.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:System.Linq.dll"
             "TargetName" = "8:"
@@ -1181,11 +1140,6 @@
             "AssemblyAsmDisplayName" = "8:System.Net.NetworkInformation, Version=4.0.10.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
                 "ScatterAssemblies"
                 {
-                    "_33150E0F2FFFE7AB3351CABD832980E4"
-                    {
-                    "Name" = "8:System.Net.NetworkInformation.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:System.Net.NetworkInformation.dll"
             "TargetName" = "8:"
@@ -1212,11 +1166,6 @@
             "AssemblyAsmDisplayName" = "8:System.Runtime.InteropServices, Version=4.0.20.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
                 "ScatterAssemblies"
                 {
-                    "_396C7EAA3D2FEF456D9CE5BCF6E3BFB6"
-                    {
-                    "Name" = "8:System.Runtime.InteropServices.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:System.Runtime.InteropServices.dll"
             "TargetName" = "8:"
@@ -1243,11 +1192,6 @@
             "AssemblyAsmDisplayName" = "8:System.Text.Encoding, Version=4.0.10.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
                 "ScatterAssemblies"
                 {
-                    "_39C5BE7FCF4127D58352E7B64267898F"
-                    {
-                    "Name" = "8:System.Text.Encoding.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:System.Text.Encoding.dll"
             "TargetName" = "8:"
@@ -1274,11 +1218,6 @@
             "AssemblyAsmDisplayName" = "8:System.ServiceModel.Http, Version=4.0.10.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
                 "ScatterAssemblies"
                 {
-                    "_3ADBA8723EFB090E7C0EAAFAAF7EAB32"
-                    {
-                    "Name" = "8:System.ServiceModel.Http.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:System.ServiceModel.Http.dll"
             "TargetName" = "8:"
@@ -1305,11 +1244,6 @@
             "AssemblyAsmDisplayName" = "8:System.Linq.Queryable, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
                 "ScatterAssemblies"
                 {
-                    "_3B332A57ABA64C1834D29610BE7D71D2"
-                    {
-                    "Name" = "8:System.Linq.Queryable.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:System.Linq.Queryable.dll"
             "TargetName" = "8:"
@@ -1336,11 +1270,6 @@
             "AssemblyAsmDisplayName" = "8:System.Runtime, Version=4.0.20.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
                 "ScatterAssemblies"
                 {
-                    "_45322390FB988B01EF50E0C3FE66AE7B"
-                    {
-                    "Name" = "8:System.Runtime.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:System.Runtime.dll"
             "TargetName" = "8:"
@@ -1367,11 +1296,6 @@
             "AssemblyAsmDisplayName" = "8:System.Threading.Timer, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
                 "ScatterAssemblies"
                 {
-                    "_4539A5E17BB9198D45B5C022792A5571"
-                    {
-                    "Name" = "8:System.Threading.Timer.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:System.Threading.Timer.dll"
             "TargetName" = "8:"
@@ -1398,11 +1322,6 @@
             "AssemblyAsmDisplayName" = "8:System.Threading.Tasks.Parallel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
                 "ScatterAssemblies"
                 {
-                    "_45B91F518698645FD534A59FA254ED7C"
-                    {
-                    "Name" = "8:System.Threading.Tasks.Parallel.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:System.Threading.Tasks.Parallel.dll"
             "TargetName" = "8:"
@@ -1449,11 +1368,6 @@
             "AssemblyAsmDisplayName" = "8:System.Threading.Tasks, Version=4.0.10.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
                 "ScatterAssemblies"
                 {
-                    "_4AD072DC113463FFAEE0C394D722BFA5"
-                    {
-                    "Name" = "8:System.Threading.Tasks.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:System.Threading.Tasks.dll"
             "TargetName" = "8:"
@@ -1480,11 +1394,6 @@
             "AssemblyAsmDisplayName" = "8:System.Runtime.Serialization.Xml, Version=4.0.10.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
                 "ScatterAssemblies"
                 {
-                    "_4E318736A5B330D537573D3A940E85B3"
-                    {
-                    "Name" = "8:System.Runtime.Serialization.Xml.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:System.Runtime.Serialization.Xml.dll"
             "TargetName" = "8:"
@@ -1542,11 +1451,6 @@
             "AssemblyAsmDisplayName" = "8:BochkyLink.BL, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86"
                 "ScatterAssemblies"
                 {
-                    "_5778564DFCA6756AEFD7196C8A6ABAED"
-                    {
-                    "Name" = "8:BochkyLink.BL.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:BochkyLink.BL.dll"
             "TargetName" = "8:"
@@ -1573,11 +1477,6 @@
             "AssemblyAsmDisplayName" = "8:System.Xml.XDocument, Version=4.0.10.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
                 "ScatterAssemblies"
                 {
-                    "_5933C678ECDFF0D08FB7939895FD71DB"
-                    {
-                    "Name" = "8:System.Xml.XDocument.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:System.Xml.XDocument.dll"
             "TargetName" = "8:"
@@ -1604,11 +1503,6 @@
             "AssemblyAsmDisplayName" = "8:System.Linq.Expressions, Version=4.0.10.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
                 "ScatterAssemblies"
                 {
-                    "_5DF850A9461C3CEC647102057BDA1E5C"
-                    {
-                    "Name" = "8:System.Linq.Expressions.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:System.Linq.Expressions.dll"
             "TargetName" = "8:"
@@ -1666,11 +1560,6 @@
             "AssemblyAsmDisplayName" = "8:System.Text.Encoding.Extensions, Version=4.0.10.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
                 "ScatterAssemblies"
                 {
-                    "_5F80CF75BCD664DA2F0F74B3EC944E74"
-                    {
-                    "Name" = "8:System.Text.Encoding.Extensions.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:System.Text.Encoding.Extensions.dll"
             "TargetName" = "8:"
@@ -1697,11 +1586,6 @@
             "AssemblyAsmDisplayName" = "8:System.Xml.ReaderWriter, Version=4.0.10.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
                 "ScatterAssemblies"
                 {
-                    "_6158B28F12372966D0C584812793048F"
-                    {
-                    "Name" = "8:System.Xml.ReaderWriter.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:System.Xml.ReaderWriter.dll"
             "TargetName" = "8:"
@@ -1779,11 +1663,6 @@
             "AssemblyAsmDisplayName" = "8:System.ComponentModel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
                 "ScatterAssemblies"
                 {
-                    "_6E8F5F7240C733A4AEF5FF214B8E022C"
-                    {
-                    "Name" = "8:System.ComponentModel.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:System.ComponentModel.dll"
             "TargetName" = "8:"
@@ -1810,11 +1689,6 @@
             "AssemblyAsmDisplayName" = "8:System.Xml.XmlSerializer, Version=4.0.10.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
                 "ScatterAssemblies"
                 {
-                    "_6F065A0119DB1664D0D22AA817D9D247"
-                    {
-                    "Name" = "8:System.Xml.XmlSerializer.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:System.Xml.XmlSerializer.dll"
             "TargetName" = "8:"
@@ -1841,11 +1715,6 @@
             "AssemblyAsmDisplayName" = "8:System.Diagnostics.Contracts, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
                 "ScatterAssemblies"
                 {
-                    "_785CA91B89FC79863C8483CB035ECC5A"
-                    {
-                    "Name" = "8:System.Diagnostics.Contracts.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:System.Diagnostics.Contracts.dll"
             "TargetName" = "8:"
@@ -1872,11 +1741,6 @@
             "AssemblyAsmDisplayName" = "8:System.Resources.ResourceManager, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
                 "ScatterAssemblies"
                 {
-                    "_798CFF2C1677F050DF77E81BF43AE789"
-                    {
-                    "Name" = "8:System.Resources.ResourceManager.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:System.Resources.ResourceManager.dll"
             "TargetName" = "8:"
@@ -1903,11 +1767,6 @@
             "AssemblyAsmDisplayName" = "8:System.ServiceModel.NetTcp, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
                 "ScatterAssemblies"
                 {
-                    "_7A6DDCE965C0308F3AEA8A7ADF98976E"
-                    {
-                    "Name" = "8:System.ServiceModel.NetTcp.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:System.ServiceModel.NetTcp.dll"
             "TargetName" = "8:"
@@ -1934,11 +1793,6 @@
             "AssemblyAsmDisplayName" = "8:System.Net.WebHeaderCollection, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
                 "ScatterAssemblies"
                 {
-                    "_7C86FDC318643B94681A9F2D1C955D02"
-                    {
-                    "Name" = "8:System.Net.WebHeaderCollection.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:System.Net.WebHeaderCollection.dll"
             "TargetName" = "8:"
@@ -1965,11 +1819,6 @@
             "AssemblyAsmDisplayName" = "8:System.ServiceModel.Duplex, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
                 "ScatterAssemblies"
                 {
-                    "_7D292916FB3B5B32BD94F11C47527CC1"
-                    {
-                    "Name" = "8:System.ServiceModel.Duplex.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:System.ServiceModel.Duplex.dll"
             "TargetName" = "8:"
@@ -1996,11 +1845,6 @@
             "AssemblyAsmDisplayName" = "8:System.Reflection.Emit.ILGeneration, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
                 "ScatterAssemblies"
                 {
-                    "_7DAFBFE5DFBC9B5847864C0388EEDC92"
-                    {
-                    "Name" = "8:System.Reflection.Emit.ILGeneration.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:System.Reflection.Emit.ILGeneration.dll"
             "TargetName" = "8:"
@@ -2027,11 +1871,6 @@
             "AssemblyAsmDisplayName" = "8:System.Diagnostics.Tracing, Version=4.0.20.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
                 "ScatterAssemblies"
                 {
-                    "_82B84608DF81BF2C70C44AD060702B38"
-                    {
-                    "Name" = "8:System.Diagnostics.Tracing.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:System.Diagnostics.Tracing.dll"
             "TargetName" = "8:"
@@ -2058,11 +1897,6 @@
             "AssemblyAsmDisplayName" = "8:System.Collections.Concurrent, Version=4.0.10.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
                 "ScatterAssemblies"
                 {
-                    "_84CE100F2AF96F7A71D179FE08D8279E"
-                    {
-                    "Name" = "8:System.Collections.Concurrent.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:System.Collections.Concurrent.dll"
             "TargetName" = "8:"
@@ -2089,11 +1923,6 @@
             "AssemblyAsmDisplayName" = "8:System.Linq.Parallel, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
                 "ScatterAssemblies"
                 {
-                    "_84F6A21E5C986176991B445F3383110C"
-                    {
-                    "Name" = "8:System.Linq.Parallel.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:System.Linq.Parallel.dll"
             "TargetName" = "8:"
@@ -2120,11 +1949,6 @@
             "AssemblyAsmDisplayName" = "8:System.Runtime.InteropServices.RuntimeInformation, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_871CFB65876CC690EE5CAB79A04D29D5"
-                    {
-                    "Name" = "8:System.Runtime.InteropServices.RuntimeInformation.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:System.Runtime.InteropServices.RuntimeInformation.dll"
             "TargetName" = "8:"
@@ -2151,11 +1975,6 @@
             "AssemblyAsmDisplayName" = "8:System.ServiceModel.Security, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
                 "ScatterAssemblies"
                 {
-                    "_8864E512C9AB4D502DEC2BB45F45EA07"
-                    {
-                    "Name" = "8:System.ServiceModel.Security.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:System.ServiceModel.Security.dll"
             "TargetName" = "8:"
@@ -2182,11 +2001,6 @@
             "AssemblyAsmDisplayName" = "8:BochkyLink.Source, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86"
                 "ScatterAssemblies"
                 {
-                    "_8BE3FCAE13F4D05E6F8672FA5A73C46D"
-                    {
-                    "Name" = "8:BochkyLink.Source.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:BochkyLink.Source.dll"
             "TargetName" = "8:"
@@ -2206,26 +2020,6 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_8C365CB9A6064B02A31BAA23E4D98CE0"
-            {
-            "SourcePath" = "8:..\\Settings.dat"
-            "TargetName" = "8:Settings.dat"
-            "Tag" = "8:"
-            "Folder" = "8:_05CB5C5A04C9424F9656557B3EA21DFF"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_9132E62CF2891CD41716DA91825F86AE"
             {
             "AssemblyRegister" = "3:1"
@@ -2233,11 +2027,6 @@
             "AssemblyAsmDisplayName" = "8:System.Runtime.Handles, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
                 "ScatterAssemblies"
                 {
-                    "_9132E62CF2891CD41716DA91825F86AE"
-                    {
-                    "Name" = "8:System.Runtime.Handles.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:System.Runtime.Handles.dll"
             "TargetName" = "8:"
@@ -2264,11 +2053,6 @@
             "AssemblyAsmDisplayName" = "8:System.Collections, Version=4.0.10.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
                 "ScatterAssemblies"
                 {
-                    "_97C253CB755E545A6950F1EDA66CA944"
-                    {
-                    "Name" = "8:System.Collections.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:System.Collections.dll"
             "TargetName" = "8:"
@@ -2295,11 +2079,6 @@
             "AssemblyAsmDisplayName" = "8:System.Reflection, Version=4.0.10.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
                 "ScatterAssemblies"
                 {
-                    "_9DD78A56FBD87978D055F344B1410A29"
-                    {
-                    "Name" = "8:System.Reflection.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:System.Reflection.dll"
             "TargetName" = "8:"
@@ -2326,11 +2105,6 @@
             "AssemblyAsmDisplayName" = "8:System.ObjectModel, Version=4.0.10.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
                 "ScatterAssemblies"
                 {
-                    "_9E791E463D3F18F408B88D2623370FAB"
-                    {
-                    "Name" = "8:System.ObjectModel.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:System.ObjectModel.dll"
             "TargetName" = "8:"
@@ -2357,11 +2131,6 @@
             "AssemblyAsmDisplayName" = "8:System.Runtime.Serialization.Json, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
                 "ScatterAssemblies"
                 {
-                    "_A6119C1B1AAC5BF88C204D34A5FC43DA"
-                    {
-                    "Name" = "8:System.Runtime.Serialization.Json.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:System.Runtime.Serialization.Json.dll"
             "TargetName" = "8:"
@@ -2388,11 +2157,6 @@
             "AssemblyAsmDisplayName" = "8:System.Net.Primitives, Version=4.0.10.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
                 "ScatterAssemblies"
                 {
-                    "_A6F88AC2F2C4EC76841651F7593F0C64"
-                    {
-                    "Name" = "8:System.Net.Primitives.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:System.Net.Primitives.dll"
             "TargetName" = "8:"
@@ -2419,11 +2183,6 @@
             "AssemblyAsmDisplayName" = "8:System.Runtime.Numerics, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
                 "ScatterAssemblies"
                 {
-                    "_ABB4A06514A355E41977BB2DACCD80E8"
-                    {
-                    "Name" = "8:System.Runtime.Numerics.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:System.Runtime.Numerics.dll"
             "TargetName" = "8:"
@@ -2450,11 +2209,6 @@
             "AssemblyAsmDisplayName" = "8:System.Runtime.Serialization.Primitives, Version=4.0.10.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
                 "ScatterAssemblies"
                 {
-                    "_BCA72D94937B1FC351577D1BC1C4A120"
-                    {
-                    "Name" = "8:System.Runtime.Serialization.Primitives.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:System.Runtime.Serialization.Primitives.dll"
             "TargetName" = "8:"
@@ -2481,11 +2235,6 @@
             "AssemblyAsmDisplayName" = "8:System.Reflection.Extensions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
                 "ScatterAssemblies"
                 {
-                    "_C18AD127C0F0D66B8693713DFB40E205"
-                    {
-                    "Name" = "8:System.Reflection.Extensions.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:System.Reflection.Extensions.dll"
             "TargetName" = "8:"
@@ -2512,11 +2261,6 @@
             "AssemblyAsmDisplayName" = "8:System.IO, Version=4.0.10.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
                 "ScatterAssemblies"
                 {
-                    "_C5C006B35AC88AF0EBC2D723C2777740"
-                    {
-                    "Name" = "8:System.IO.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:System.IO.dll"
             "TargetName" = "8:"
@@ -2563,11 +2307,6 @@
             "AssemblyAsmDisplayName" = "8:System.ComponentModel.Annotations, Version=4.0.10.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
                 "ScatterAssemblies"
                 {
-                    "_CF98A1937EC5E195BADCE78836BF281E"
-                    {
-                    "Name" = "8:System.ComponentModel.Annotations.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:System.ComponentModel.Annotations.dll"
             "TargetName" = "8:"
@@ -2594,11 +2333,6 @@
             "AssemblyAsmDisplayName" = "8:System.Text.RegularExpressions, Version=4.0.10.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
                 "ScatterAssemblies"
                 {
-                    "_CFBDB4132081F0B7136A65AACB3CD3D6"
-                    {
-                    "Name" = "8:System.Text.RegularExpressions.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:System.Text.RegularExpressions.dll"
             "TargetName" = "8:"
@@ -2625,11 +2359,6 @@
             "AssemblyAsmDisplayName" = "8:System.ComponentModel.EventBasedAsync, Version=4.0.10.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
                 "ScatterAssemblies"
                 {
-                    "_D0978F9B7512EFFE470A0EF9F0F3B8C2"
-                    {
-                    "Name" = "8:System.ComponentModel.EventBasedAsync.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:System.ComponentModel.EventBasedAsync.dll"
             "TargetName" = "8:"
@@ -2656,11 +2385,6 @@
             "AssemblyAsmDisplayName" = "8:System.Security.Principal, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
                 "ScatterAssemblies"
                 {
-                    "_E61A25E7ED87D9194D3206D29E8C2CD8"
-                    {
-                    "Name" = "8:System.Security.Principal.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:System.Security.Principal.dll"
             "TargetName" = "8:"
@@ -2687,11 +2411,6 @@
             "AssemblyAsmDisplayName" = "8:System.Diagnostics.Debug, Version=4.0.10.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
                 "ScatterAssemblies"
                 {
-                    "_E95A6FE5ED7EF3F4E8FEED1686F42A3F"
-                    {
-                    "Name" = "8:System.Diagnostics.Debug.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:System.Diagnostics.Debug.dll"
             "TargetName" = "8:"
@@ -2718,11 +2437,6 @@
             "AssemblyAsmDisplayName" = "8:BochkyLink.Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=x86"
                 "ScatterAssemblies"
                 {
-                    "_EAE4CF59592950D6E47DF200B6C99BF9"
-                    {
-                    "Name" = "8:BochkyLink.Common.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:BochkyLink.Common.dll"
             "TargetName" = "8:"
@@ -2749,11 +2463,6 @@
             "AssemblyAsmDisplayName" = "8:System.Net.Requests, Version=4.0.10.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
                 "ScatterAssemblies"
                 {
-                    "_EB967C726EF6AEF920449E2A57798769"
-                    {
-                    "Name" = "8:System.Net.Requests.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:System.Net.Requests.dll"
             "TargetName" = "8:"
@@ -2780,11 +2489,6 @@
             "AssemblyAsmDisplayName" = "8:System.Reflection.Primitives, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
                 "ScatterAssemblies"
                 {
-                    "_ED32DCEFEEDDB6AC6B9F234F79BC0A56"
-                    {
-                    "Name" = "8:System.Reflection.Primitives.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:System.Reflection.Primitives.dll"
             "TargetName" = "8:"
@@ -2811,11 +2515,6 @@
             "AssemblyAsmDisplayName" = "8:System.ServiceModel.Primitives, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
                 "ScatterAssemblies"
                 {
-                    "_F38F9182B82D92F2AAE76620EE3C5046"
-                    {
-                    "Name" = "8:System.ServiceModel.Primitives.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:System.ServiceModel.Primitives.dll"
             "TargetName" = "8:"
@@ -2842,11 +2541,6 @@
             "AssemblyAsmDisplayName" = "8:System.Dynamic.Runtime, Version=4.0.10.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
                 "ScatterAssemblies"
                 {
-                    "_F628E05596BD2152688B543E00FE64DF"
-                    {
-                    "Name" = "8:System.Dynamic.Runtime.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:System.Dynamic.Runtime.dll"
             "TargetName" = "8:"
@@ -2873,11 +2567,6 @@
             "AssemblyAsmDisplayName" = "8:System.Runtime.Extensions, Version=4.0.10.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
                 "ScatterAssemblies"
                 {
-                    "_F83C02055E3A47F12CF373FFA4E2B5AA"
-                    {
-                    "Name" = "8:System.Runtime.Extensions.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:System.Runtime.Extensions.dll"
             "TargetName" = "8:"
@@ -2986,15 +2675,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Bochky. Подготовка спецификаций"
-        "ProductCode" = "8:{F6745BA9-5DA2-4396-8E3E-181A02A762F9}"
-        "PackageCode" = "8:{663F4CD6-828C-4B15-98CA-05B16DE38A3F}"
+        "ProductCode" = "8:{7C19A295-25C9-4A1D-941C-4B79E799386F}"
+        "PackageCode" = "8:{274FAF48-5FDF-424A-87B2-5664055A1611}"
         "UpgradeCode" = "8:{A811D519-C4CB-48F1-AF0C-AAF4EDECC409}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:FALSE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:1.4.0"
+        "ProductVersion" = "8:1.4.2"
         "Manufacturer" = "8:Bochky app"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"

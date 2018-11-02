@@ -26,11 +26,12 @@ namespace BochkyLink.BL
         /// Конструктор
         /// </summary>
         /// <param name="settings">Настройки программы</param>
+        
 
         public SpecBusinessLayerImplt(ISettings settings) 
             : base(new DataBase(settings.GetPropertyValue("DBConnectionString")))
            
-        {
+        {           
             Settings = settings;           
         }
 
@@ -61,11 +62,11 @@ namespace BochkyLink.BL
         /// </summary>
         /// <param name="model"></param>
         /// <param name="consumerFolderName"></param>
-        public void FillConsumerFolder(string model, string consumerFolderName)
+        public void FillConsumerFolder(string model, string consumerFolderName, string priorytyPath)
         {
             SetCurrentModel(model);
             List<SpecificationFile> specificationFiles = new List<SpecificationFile>();
-            
+            ConsumerFolder consumerFolder;
             Folder baseSpecFolder = GetSpecificationFolder(CurrentModel, Settings.GetPropertyValue("PathToCRMFolder"));
 
             IEnumerable<string> SpecFilesPath = baseSpecFolder.GetFilesByExtension(".xlsm", System.IO.SearchOption.TopDirectoryOnly);
@@ -73,8 +74,15 @@ namespace BochkyLink.BL
             foreach (string s in SpecFilesPath)            
                 specificationFiles.Add(new SpecificationFile(s));
 
-            ConsumerFolder consumerFolder = new ConsumerFolder(Settings.GetPropertyValue("PathToConsumerFolder"), 
-                Settings.GetPropertyValue("PathToTemplateFolder"), consumerFolderName);
+            if (priorytyPath != "")
+            {
+                consumerFolder = new ConsumerFolder(priorytyPath, Settings.GetPropertyValue("PathToTemplateFolder"));
+            }
+            else
+            {
+                consumerFolder = new ConsumerFolder(Settings.GetPropertyValue("PathToConsumerFolder"),
+                    Settings.GetPropertyValue("PathToTemplateFolder"), consumerFolderName);
+            }            
 
             Folder consomerSpecFolder = new Folder(consumerFolder.FolderPath + Settings.GetPropertyValue("NameSpecConsumerFolder"));
 

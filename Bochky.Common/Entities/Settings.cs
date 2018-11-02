@@ -22,13 +22,14 @@ namespace BochkyLink.Common.Entities
         private const string DEFAULT_NAME_SPEC_CONSUMER_FOLDER = @"\Договор\";
         private const string DEFAULT_DBCONNECTION_PATH = @"\Bochky app\Database.accdb";
         private const string DEFAULT_TEMPLATE_DBCONNECTION_PATH = DEFAULT_PATH_TO_CRM_FOLDER + @"Database.accdb";
-        private const string DEFAULT_SETTINGS_FILE_NAME = @"\Bochky app\Settings.dat";
+        private const string DEFAULT_SETTINGS_FILE_NAME = @"\Bochky app\Settings.bsf";
 
-        public List<Property> PropertiesList { get; set; }               
-        
+        public List<Property> PropertiesList { get; set; }
+        public List<Property> NotEditablePropertiesList { get; private set; }
+
         public Settings()
-        {
-            UseDefaults();            
+        {           
+            UseDefaults();
         }
               
         /// <summary>
@@ -36,17 +37,24 @@ namespace BochkyLink.Common.Entities
         /// </summary>
         public void UseDefaults()
         {
-            PropertiesList = new List<Property>();            
-            PropertiesList.Add(new Property("DBFilePath", Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + DEFAULT_DBCONNECTION_PATH));
-            PropertiesList.Add(new Property("DBTemplateFilePath", DEFAULT_TEMPLATE_DBCONNECTION_PATH));
-            PropertiesList.Add(new Property("DBConnectionString", DEFAULT_DBCONNECTION_PROVIDER + GetPropertyValue("DBFilePath")));            
-            PropertiesList.Add(new Property("DBTemplateConnectionString", DEFAULT_DBCONNECTION_PROVIDER + DEFAULT_TEMPLATE_DBCONNECTION_PATH));
-            PropertiesList.Add(new Property("PathToSpecFolder", DEFAULT_PATH_TO_SPEC_FOLDER));
-            PropertiesList.Add(new Property("PathToConsumerFolder", DEFAULT_PATH_TO_CONSUMER_FOLDER));
-            PropertiesList.Add(new Property("PathToTemplateFolder", DEFAULT_PATH_TO_TEMPLATE_FOLDER));
-            PropertiesList.Add(new Property("PathToCRMFolder", DEFAULT_PATH_TO_CRM_FOLDER));
-            PropertiesList.Add(new Property("NameSpecConsumerFolder", DEFAULT_NAME_SPEC_CONSUMER_FOLDER));
-            PropertiesList.Add(new Property("settingsFileName", Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + DEFAULT_SETTINGS_FILE_NAME));
+            NotEditablePropertiesList = new List<Property>();
+            NotEditablePropertiesList.Add(new Property("DBFilePath", Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) 
+                + DEFAULT_DBCONNECTION_PATH));
+            NotEditablePropertiesList.Add(new Property("settingsFileName", Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) 
+                + DEFAULT_SETTINGS_FILE_NAME));
+            NotEditablePropertiesList.Add(new Property("DBConnectionString", DEFAULT_DBCONNECTION_PROVIDER 
+                + Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + DEFAULT_DBCONNECTION_PATH));
+                        
+            PropertiesList = new List<Property>()
+            {
+                new Property("DBTemplateFilePath", DEFAULT_TEMPLATE_DBCONNECTION_PATH),
+                new Property("DBTemplateConnectionString", DEFAULT_DBCONNECTION_PROVIDER + DEFAULT_TEMPLATE_DBCONNECTION_PATH),
+                new Property("PathToSpecFolder", DEFAULT_PATH_TO_SPEC_FOLDER),
+                new Property("PathToConsumerFolder", DEFAULT_PATH_TO_CONSUMER_FOLDER),
+                new Property("PathToTemplateFolder", DEFAULT_PATH_TO_TEMPLATE_FOLDER),
+                new Property("PathToCRMFolder", DEFAULT_PATH_TO_CRM_FOLDER),
+                new Property("NameSpecConsumerFolder", DEFAULT_NAME_SPEC_CONSUMER_FOLDER)
+            };            
         }
 
         public DataTable GetPropertiesTable()
@@ -63,6 +71,11 @@ namespace BochkyLink.Common.Entities
 
         public string GetPropertyValue(string name)
         {
+            foreach (Property p in NotEditablePropertiesList)
+            {
+                if (p.Name == name) return p.Value;
+            }
+
             foreach (Property p in PropertiesList)
             {
                 if (p.Name == name) return p.Value;
@@ -81,9 +94,8 @@ namespace BochkyLink.Common.Entities
         }
 
         public void SaveSettingsFromSourse(DataTable dt)
-        {
-            
-            PropertiesList = new List<Property>();            
+        {            
+            PropertiesList = new List<Property>();         
             foreach (DataRow dr in dt.Rows)
             {
                 PropertiesList.Add(new Property(dr[0].ToString(),dr[1].ToString()));
