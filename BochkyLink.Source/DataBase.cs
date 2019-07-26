@@ -56,8 +56,12 @@ namespace BochkyLink.Source
                     CONNECTION.Open();                   
                     DataTable dataTable = new DataTable();
                     dataAdapter = new OleDbDataAdapter("SELECT * FROM " + tableName + " ORDER BY 1 ASC" + "", CONNECTION);
-                    if (CommonDataSet.Tables.Contains(tableName)) CommonDataSet.Tables[tableName].Clear();
+
+                    if (CommonDataSet.Tables.Contains(tableName))
+                        CommonDataSet.Tables[tableName].Clear();
+
                     dataAdapter.Fill(CommonDataSet, tableName);
+
                     dataTable = CommonDataSet.Tables[tableName];
 
                     return dataTable;

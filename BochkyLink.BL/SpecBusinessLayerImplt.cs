@@ -42,6 +42,7 @@ namespace BochkyLink.BL
         public List<string> GetCateriesNameList()
         {
             CategoriesList = GetCategoriesList();
+            CategoriesList.Sort();
             return CategoriesList.ToNameList();
         }
 
@@ -53,7 +54,8 @@ namespace BochkyLink.BL
         {
             if (category == "") throw new BusinessException("Не задана категория");
             SetCurrentCategory(category);            
-            ModelList = GetModelListByCategory(CurrentCategory);     
+            ModelList = GetModelListByCategory(CurrentCategory);
+            ModelList.Sort();
             return ModelList.ToNameList();            
         }
 

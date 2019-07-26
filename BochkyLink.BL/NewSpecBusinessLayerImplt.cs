@@ -33,9 +33,14 @@ namespace BochkyLink.BL
         /// </summary>
         /// <returns>Список категорий</returns>
         public List<string> GetCateriesNameList()
-        {            
-            return GetCategoriesList().ToNameList();
+        {
+            var categoriesList = GetCategoriesList();
+            categoriesList.Sort();
+            var categoriesNameList = categoriesList.ToNameList();
+
+            return categoriesNameList;
         }
+                
 
         /// <summary>
         /// Получения списка моделей категории
@@ -47,12 +52,16 @@ namespace BochkyLink.BL
             ModelList modelList;        
                         
             modelList = GetModelListByCategory(GetCategoriesList().FindCategoryByName(category));
+
+            modelList.Sort();
+
             return modelList.ToNameList();
         }
 
-        public void CreateNewCategory(string newCategoryName)
-        {                      
-            CreateNewCategory(new Category(newCategoryName));            
+        public void CreateNewCategory(string newCategoryName, decimal sortIndex)
+        {
+            
+            CreateNewCategory(new Category(newCategoryName, Decimal.ToInt32(sortIndex)));            
         }
 
         private void CreateNewModel(Category category, string newModelName)
@@ -63,6 +72,7 @@ namespace BochkyLink.BL
             {
                 if (m.Name == newModelName) throw new BusinessException("Имя модели совпадает с уже существующим именем в категории " + category.Name);
             }
+
             CreateNewModel(new Model(newModelName, category));
         }      
  

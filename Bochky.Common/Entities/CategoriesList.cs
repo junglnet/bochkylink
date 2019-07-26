@@ -15,6 +15,7 @@ namespace BochkyLink.Common.Entities
         public CategoriesList()
         {
             Categories = new List<Category>();
+           
         }
 
         public int Length
@@ -42,6 +43,11 @@ namespace BochkyLink.Common.Entities
         public void Add(Category newCategory)
         {
             Categories.Add(newCategory);
+        }
+
+        public void Sort()
+        {
+            Categories.Sort();
         }
 
         public List<string> ToNameList()

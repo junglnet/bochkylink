@@ -42,6 +42,10 @@ namespace BochkyLink.Common.Entities
             Models.Add(newModel);
         }
 
+        public void Sort()
+        {
+            Models.Sort();
+        }
         public List<string> ToNameList()
         {            
             if (Models.Count > 0)

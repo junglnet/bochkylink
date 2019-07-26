@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27703.2042
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29102.190
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BochkyLink.UI", "BochkyLink\BochkyLink.UI.csproj", "{DA79A821-B4AB-4751-9412-F12CBB21D859}"
 	ProjectSection(ProjectDependencies) = postProject
@@ -31,6 +31,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BochkyLink.BL", "BochkyLink
 	EndProjectSection
 EndProject
 Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "SetupEmployee", "SetupEmployee\SetupEmployee.vdproj", "{17626C05-84B0-4B52-AF37-84D1130AF994}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Todo", "Todo", "{5DA84ECF-704D-40F7-9CA9-4B96F5B752F4}"
+	ProjectSection(SolutionItems) = preProject
+		Todo list.txt = Todo list.txt
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

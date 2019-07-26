@@ -35,12 +35,15 @@ namespace BochkyLink
             this.StartPosition = FormStartPosition.CenterScreen;
             this.FormBorderStyle = FormBorderStyle.Fixed3D;
             this.Settings = settings;
-
+           
             try
             {
                 dBSynchronizer = new FIleDBSynchronizer(Settings.GetPropertyValue("DBTemplateFilePath"), Settings.GetPropertyValue("DBFilePath"));                
-                dBSynchronizer.Sync();                
+                dBSynchronizer.Sync();
+               
+
                 SpecBusinessLayer = new SpecBusinessLayerImplt(settings);
+
             }
             catch (Exception ex)
             {

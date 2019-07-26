@@ -21,8 +21,10 @@ namespace BochkyLink.Common.Entities
         private const string DEFAULT_PATH_TO_CRM_FOLDER = @"\\fileserver\Bochky\2. Типовые документы\8. Спецификации\";
         private const string DEFAULT_NAME_SPEC_CONSUMER_FOLDER = @"\Договор\";
         private const string DEFAULT_DBCONNECTION_PATH = @"\Bochky app\Database.accdb";
-        private const string DEFAULT_TEMPLATE_DBCONNECTION_PATH = DEFAULT_PATH_TO_CRM_FOLDER + @"Database.accdb";
+        private const string DEFAULT_TEMPLATE_DBCONNECTION_PATH = DEFAULT_PATH_TO_CRM_FOLDER + @"Database1.accdb";
         private const string DEFAULT_SETTINGS_FILE_NAME = @"\Bochky app\Settings.bsf";
+
+        
 
         public List<Property> PropertiesList { get; set; }
         public List<Property> NotEditablePropertiesList { get; private set; }
@@ -38,12 +40,19 @@ namespace BochkyLink.Common.Entities
         public void UseDefaults()
         {
             NotEditablePropertiesList = new List<Property>();
-            NotEditablePropertiesList.Add(new Property("DBFilePath", Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) 
+
+            // var userApplicationDataPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+
+            var userApplicationDataPath = @"C:\Users\AndreyDerkach\source\repos\bochkylink\TEST";
+
+            NotEditablePropertiesList.Add(new Property("DBFilePath", userApplicationDataPath
                 + DEFAULT_DBCONNECTION_PATH));
-            NotEditablePropertiesList.Add(new Property("settingsFileName", Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) 
+
+            NotEditablePropertiesList.Add(new Property("settingsFileName", userApplicationDataPath
                 + DEFAULT_SETTINGS_FILE_NAME));
+
             NotEditablePropertiesList.Add(new Property("DBConnectionString", DEFAULT_DBCONNECTION_PROVIDER 
-                + Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + DEFAULT_DBCONNECTION_PATH));
+                + userApplicationDataPath + DEFAULT_DBCONNECTION_PATH));
                         
             PropertiesList = new List<Property>()
             {
