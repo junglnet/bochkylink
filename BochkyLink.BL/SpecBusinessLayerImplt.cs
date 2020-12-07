@@ -41,7 +41,7 @@ namespace BochkyLink.BL
         /// <returns>Список категорий</returns>        
         public List<string> GetCateriesNameList()
         {
-            CategoriesList = GetCategoriesList();
+            CategoriesList = GetCategoriesList();            
             return CategoriesList.ToNameList();
         }
 

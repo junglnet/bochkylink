@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27703.2042
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30717.126
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BochkyLink.UI", "BochkyLink\BochkyLink.UI.csproj", "{DA79A821-B4AB-4751-9412-F12CBB21D859}"
 	ProjectSection(ProjectDependencies) = postProject
@@ -29,8 +29,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BochkyLink.BL", "BochkyLink
 	ProjectSection(ProjectDependencies) = postProject
 		{E682A0C4-95EA-4265-BEF3-24E0C5379C8E} = {E682A0C4-95EA-4265-BEF3-24E0C5379C8E}
 	EndProjectSection
-EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "SetupEmployee", "SetupEmployee\SetupEmployee.vdproj", "{17626C05-84B0-4B52-AF37-84D1130AF994}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -90,18 +88,6 @@ Global
 		{90E49796-6B45-4110-9729-441C13D51D12}.Release|Any CPU.Build.0 = Release|Any CPU
 		{90E49796-6B45-4110-9729-441C13D51D12}.Release|x86.ActiveCfg = Release|x86
 		{90E49796-6B45-4110-9729-441C13D51D12}.Release|x86.Build.0 = Release|x86
-		{17626C05-84B0-4B52-AF37-84D1130AF994}.All|Any CPU.ActiveCfg = Release
-		{17626C05-84B0-4B52-AF37-84D1130AF994}.All|Any CPU.Build.0 = Release
-		{17626C05-84B0-4B52-AF37-84D1130AF994}.All|x86.ActiveCfg = Debug
-		{17626C05-84B0-4B52-AF37-84D1130AF994}.All|x86.Build.0 = Debug
-		{17626C05-84B0-4B52-AF37-84D1130AF994}.Debug|Any CPU.ActiveCfg = Debug
-		{17626C05-84B0-4B52-AF37-84D1130AF994}.Debug|Any CPU.Build.0 = Debug
-		{17626C05-84B0-4B52-AF37-84D1130AF994}.Debug|x86.ActiveCfg = Debug
-		{17626C05-84B0-4B52-AF37-84D1130AF994}.Debug|x86.Build.0 = Debug
-		{17626C05-84B0-4B52-AF37-84D1130AF994}.Release|Any CPU.ActiveCfg = Release
-		{17626C05-84B0-4B52-AF37-84D1130AF994}.Release|Any CPU.Build.0 = Release
-		{17626C05-84B0-4B52-AF37-84D1130AF994}.Release|x86.ActiveCfg = Release
-		{17626C05-84B0-4B52-AF37-84D1130AF994}.Release|x86.Build.0 = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

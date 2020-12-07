@@ -12,19 +12,23 @@ namespace BochkyLink.Common.Entities
         public string Name { get; set; }
         public Category Category { get; set; }
 
-        public Model (int id, string name, Category category)
+        public int SortIndex { get; set; }
+
+        public Model (int id, string name, Category category, int sortIndex = 0)
         {
             if (name == "" || name == null) throw new System.Exception("Имя модели не может быть пустым");
             this.Name = name;
             this.ID = id;
             this.Category = category;
+            SortIndex = sortIndex;
         }
 
-        public Model (string name, Category category)
+        public Model (string name, Category category, int sortIndex = 0)
         {
             if (name == "" || name == null) throw new System.Exception("Имя модели не может быть пустым");
             this.Name = name;           
             this.Category = category;
+            SortIndex = sortIndex;
         }
     }
 }

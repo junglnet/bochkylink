@@ -11,16 +11,20 @@ namespace BochkyLink.Common.Entities
     {
         public string Name { get; set; }
 
-        public Category(int id, string name)
+        public int SortIndex { get; set; }
+
+        public Category(int id, string name, int sortIndex = 0)
         {
             if (name == "" || name == null) throw new System.Exception("Имя категории не может быть пустым");           
             this.ID = id;
             this.Name = name;
+            SortIndex = sortIndex;
         }
-        public Category(string name)
+        public Category(string name, int sortIndex = 0)
         {
             if (name == "" || name == null) throw new System.Exception("Имя категории не может быть пустым");
             this.Name = name;
+            SortIndex = sortIndex;
         }
     }
 }

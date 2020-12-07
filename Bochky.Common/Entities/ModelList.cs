@@ -43,7 +43,10 @@ namespace BochkyLink.Common.Entities
         }
 
         public List<string> ToNameList()
-        {            
+        {
+
+            Models = Models.OrderBy(item => item.SortIndex).ThenBy(item => item.ID).ToList();
+
             if (Models.Count > 0)
                 return Models.Select(c => c.Name).ToList();        
 

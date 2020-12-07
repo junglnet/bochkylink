@@ -1,13 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Data;
-using BochkyLink.Common.Entities;
+﻿using System.Data;
 using BochkyLink.Common.Interfaces;
 using BochkyLink.Common.Exception;
-
 
 namespace BochkyLink.Common.Entities
 {
@@ -24,8 +17,10 @@ namespace BochkyLink.Common.Entities
         private const string SPEC_TABLE_NAME = "Specification";
         private const string CATEGORY_ID_COLUMN = "cat_id";
         private const string CATEGORY_NAME_COLUMN = "cat_name";
+        private const string CATEGORY_SORT_COLUMN = "cat_sort";
         private const string MODEL_ID_COLUMN = "model_id";
         private const string MODEL_NAME_COLUMN = "model_name";
+        private const string MODEL_SORT_COLUMN = "model_sort";
         private const string SPEC_PATH_COLUMN = "spec_path";
         protected IDataBase DataBase;
 
@@ -45,11 +40,23 @@ namespace BochkyLink.Common.Entities
         protected CategoriesList GetCategoriesList()
         {            
             CategoriesList categoriesList = new CategoriesList();
+            
             DataTable dataTable = DataBase.GetTable(CATEGORY_TABLE_NAME);
-           
+
             foreach (DataRow dtRow in dataTable.Rows)
-            {                
-                categoriesList.Add(new Category((int)dtRow[CATEGORY_ID_COLUMN], (string)dtRow[CATEGORY_NAME_COLUMN]));
+            {
+
+                int sortIdex;
+
+                if (string.IsNullOrEmpty(dtRow[CATEGORY_SORT_COLUMN].ToString()))
+                {
+                    sortIdex = 0;
+                }
+
+                else
+                    sortIdex = (int)dtRow[CATEGORY_SORT_COLUMN];
+
+                categoriesList.Add(new Category((int)dtRow[CATEGORY_ID_COLUMN], (string)dtRow[CATEGORY_NAME_COLUMN], sortIdex));
             }
             return categoriesList;
         }      
@@ -66,8 +73,17 @@ namespace BochkyLink.Common.Entities
             DataTable dataTable = DataBase.GetTable<int>(MODEL_TABLE_NAME, CATEGORY_ID_COLUMN, currentCategory.ID);
             
             foreach (DataRow dtRow in dataTable.Rows)
-            {                
-                    modelList.Add(new Model((int)dtRow[MODEL_ID_COLUMN], (string)dtRow[MODEL_NAME_COLUMN], currentCategory));
+            {
+                int sortIdex;
+                if (string.IsNullOrEmpty(dtRow[MODEL_SORT_COLUMN].ToString()))
+                {
+                    sortIdex = 0;
+                }
+
+                else
+                    sortIdex = (int)dtRow[MODEL_SORT_COLUMN];
+
+                modelList.Add(new Model((int)dtRow[MODEL_ID_COLUMN], (string)dtRow[MODEL_NAME_COLUMN], currentCategory, sortIdex));
             }
             return modelList;
         }       

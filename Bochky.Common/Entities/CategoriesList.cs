@@ -48,6 +48,8 @@ namespace BochkyLink.Common.Entities
         {
             List<string> list = new List<string>();
 
+            Categories = Categories.OrderBy(item => item.SortIndex).ThenBy(item => item.ID).ToList();
+
             if (Categories.Count > 0)
                 return Categories.Select(c => c.Name).ToList();
             else return null;
