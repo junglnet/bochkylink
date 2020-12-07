@@ -7,8 +7,7 @@ using System.Data;
 using BochkyLink.Common.Entities;
 using BochkyLink.Common.Interfaces;
 using BochkyLink.Common.Exception;
-using System.Windows;
-using System.Windows.Forms;
+
 
 namespace BochkyLink.Common.Entities
 {
@@ -28,7 +27,6 @@ namespace BochkyLink.Common.Entities
         private const string MODEL_ID_COLUMN = "model_id";
         private const string MODEL_NAME_COLUMN = "model_name";
         private const string SPEC_PATH_COLUMN = "spec_path";
-        private const string SORT_INDEX_COLUMN = "sort_index";
         protected IDataBase DataBase;
 
         /// <summary>
@@ -48,10 +46,10 @@ namespace BochkyLink.Common.Entities
         {            
             CategoriesList categoriesList = new CategoriesList();
             DataTable dataTable = DataBase.GetTable(CATEGORY_TABLE_NAME);
-            
+           
             foreach (DataRow dtRow in dataTable.Rows)
             {                
-                categoriesList.Add(new Category((int)dtRow[CATEGORY_ID_COLUMN], (string)dtRow[CATEGORY_NAME_COLUMN], (int)dtRow[SORT_INDEX_COLUMN]));
+                categoriesList.Add(new Category((int)dtRow[CATEGORY_ID_COLUMN], (string)dtRow[CATEGORY_NAME_COLUMN]));
             }
             return categoriesList;
         }      
@@ -68,10 +66,8 @@ namespace BochkyLink.Common.Entities
             DataTable dataTable = DataBase.GetTable<int>(MODEL_TABLE_NAME, CATEGORY_ID_COLUMN, currentCategory.ID);
             
             foreach (DataRow dtRow in dataTable.Rows)
-            {
-
-                modelList.Add(new Model((int)dtRow[MODEL_ID_COLUMN], (string)dtRow[MODEL_NAME_COLUMN], currentCategory, (int)dtRow[SORT_INDEX_COLUMN]));
-
+            {                
+                    modelList.Add(new Model((int)dtRow[MODEL_ID_COLUMN], (string)dtRow[MODEL_NAME_COLUMN], currentCategory));
             }
             return modelList;
         }       
@@ -104,7 +100,7 @@ namespace BochkyLink.Common.Entities
         /// <param name="categoryName"></param>
         protected void CreateNewCategory(Category newCategory)
         {            
-            DataBase.Insert<string, int>(CATEGORY_TABLE_NAME, newCategory.Name, newCategory.SortIndex);
+            DataBase.Insert<string>(CATEGORY_TABLE_NAME, newCategory.Name);
         }        
 
         /// <summary>

@@ -33,7 +33,7 @@ namespace BochkyLink.Common.Interfaces
         /// </summary>
         /// <param name="newCategoryName">Имя новой категории</param>
         /// <returns></returns>
-        void CreateNewCategory(string newCategoryName, decimal sortIndex);
+        void CreateNewCategory(string newCategoryName);
 
         /// <summary>
         /// Создание новой спецификации

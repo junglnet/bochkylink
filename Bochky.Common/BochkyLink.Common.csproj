@@ -9,9 +9,8 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>BochkyLink.Common</RootNamespace>
     <AssemblyName>BochkyLink.Common</AssemblyName>
-    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -83,7 +82,6 @@
     <Compile Include="Interfaces\ISettingLoader.cs" />
     <Compile Include="Interfaces\ISettings.cs" />
     <Compile Include="Interfaces\ISettingSaver.cs" />
-    <Compile Include="Interfaces\ISortable.cs" />
     <Compile Include="Interfaces\ISpecService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

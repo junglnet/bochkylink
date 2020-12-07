@@ -45,7 +45,6 @@ namespace BochkyLink
                 comboBox2.Text = "";
                 comboBox2.DataSource = NewSpecService.GetCateriesNameList();
                 label10.Text = "Папка будет создана в папке: " + Settings.GetPropertyValue("PathToCRMFolder");
-                numericUpDown1.Value = 0;
             }
             catch (Exception ex)
             {
@@ -69,12 +68,11 @@ namespace BochkyLink
         {
             try
             {
-                NewSpecService.CreateNewCategory(textBox1.Text, numericUpDown1.Value);
+                NewSpecService.CreateNewCategory(textBox1.Text);
                 comboBox1.DataSource = NewSpecService.GetCateriesNameList();                
                 comboBox1.Text = textBox1.Text;
                 textBox1.Text = "";
                 comboBox2.DataSource = NewSpecService.GetCateriesNameList();
-                
 
             }
             catch (Exception ex)
@@ -148,11 +146,6 @@ namespace BochkyLink
         private void button4_Click(object sender, EventArgs e)
         {
             this.Dispose();
-        }
-
-        private void Label12_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
